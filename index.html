@@ -92,3 +92,61 @@
     </script>
 </body>
 </html>
+                <div class="flex justify-center items-center gap-4 flex-wrap pointer-events-auto">
+                    <div class="bg-white/90 backdrop-blur px-3 py-1.5 rounded"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Google_Street_View_trusted_badge.svg/512px-Google_Street_View_trusted_badge.svg.png" alt="Google Trusted" class="h-8"></div>
+                    <div class="bg-black/60 backdrop-blur text-orange-500 font-bold text-lg px-3 py-1.5 rounded border border-gray-700">#startupindia</div>
+                </div>
+                
+                <div class="mt-8 pointer-events-auto">
+                    <a href="pricing.html" class="bg-brandGold text-brandDark px-8 py-3 text-lg rounded font-bold hover:bg-yellow-500 transition shadow-[0_0_15px_rgba(212,175,55,0.4)]">View Packages</a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none opacity-70 flex items-center gap-2 text-sm bg-black/50 px-4 py-1 rounded-full">
+                <i class="fa-solid fa-arrows-up-down-left-right"></i> Drag to explore
+            </div>
+        </header>
+
+        <section class="container mx-auto px-6 py-20">
+            <h2 class="text-3xl font-bold text-center mb-12">Perfect For Every Space</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 border border-gray-800 rounded hover:border-brandGold transition bg-gray-900">
+                    <i class="fa-solid fa-hotel text-4xl text-brandGold mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Hotels</h3>
+                    <p class="text-gray-400">Let guests explore rooms before booking.</p>
+                </div>
+                <div class="p-8 border border-gray-800 rounded hover:border-brandGold transition bg-gray-900">
+                    <i class="fa-solid fa-mug-hot text-4xl text-brandGold mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Cafés</h3>
+                    <p class="text-gray-400">Showcase your ambiance to drive walk-ins.</p>
+                </div>
+                <div class="p-8 border border-gray-800 rounded hover:border-brandGold transition bg-gray-900">
+                    <i class="fa-solid fa-store text-4xl text-brandGold mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Stores</h3>
+                    <p class="text-gray-400">Highlight product layouts to local shoppers.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-800 py-8 text-center text-gray-500 bg-black mt-auto">
+        <p>&copy; 2026 ORBT°360. All rights reserved. MSME: UDYAM-AS-03-0088382</p>
+    </footer>
+
+    <script>
+        pannellum.viewer('hero-panorama', {
+            "type": "equirectangular",
+            "panorama": "YOUR_COMPRESSED_360_IMAGE.jpg", /* REPLACE THIS WITH YOUR ACTUAL IMAGE */
+            "autoLoad": true,
+            "compass": false,
+            "showZoomCtrl": false,
+            "showFullscreenCtrl": false,
+            "mouseZoom": false,
+            "draggable": true,
+            "pitch": -5,
+            "yaw": 0,
+            "hfov": 100
+        });
+    </script>
+</body>
+</html>
