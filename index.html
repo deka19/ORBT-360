@@ -1,152 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORBT°360 | Bring Google Maps Inside</title>
+    <title>ORBT°360 | Immersive Virtual Tours</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-    <script>
-        tailwind.config = { theme: { extend: { colors: { brandDark: '#111111', brandGold: '#D4AF37', } } } }
-    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030303; color: #f3f4f6; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .text-gradient-gold { background: linear-gradient(135deg, #FDE047 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glow-bg { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(0,0,0,0) 70%); top: -200px; right: -200px; z-index: -1; pointer-events: none; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030303; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+    </style>
 </head>
-<body class="bg-brandDark text-white font-sans antialiased flex flex-col min-h-screen">
+<body class="antialiased relative overflow-x-hidden">
 
-    <nav class="border-b border-gray-800 bg-brandDark relative z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold tracking-widest text-white">ORBT<span class="text-brandGold">°</span>360</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-brandGold transition font-bold">Home</a>
-                <a href="pricing.html" class="hover:text-brandGold transition">Pricing & Packages</a>
-                <a href="book.html" class="hover:text-brandGold transition">Book a Shoot</a>
+    <div class="glow-bg"></div>
+
+    <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+        <nav class="glass-panel rounded-full px-8 py-4 flex justify-between items-center w-full max-w-5xl shadow-2xl">
+            <a href="index.html" class="text-2xl font-extrabold tracking-widest text-white font-heading">ORBT<span class="text-gradient-gold">°</span>360</a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="index.html" class="text-yellow-500 transition">Home</a>
+                <a href="pricing.html" class="text-gray-300 hover:text-white transition">Packages</a>
+                <a href="book.html" class="text-gray-300 hover:text-white transition">Book Shoot</a>
             </div>
-            <a href="book.html" class="bg-brandGold text-brandDark px-6 py-2 rounded font-bold hover:bg-yellow-500 transition shadow-lg">Book Now</a>
-        </div>
-    </nav>
+            <a href="book.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(212,175,55,0.3)]">Get Started</a>
+        </nav>
+    </div>
 
-    <main class="flex-grow">
-        <header class="relative w-full h-[60vh] md:h-[80vh] bg-black border-b border-gray-800 flex flex-col">
-            <div id="hero-panorama" class="absolute inset-0 w-full h-full z-0"></div>
+    <header class="relative w-full h-[85vh] md:h-screen flex items-center justify-center pt-20">
+        <div id="hero-panorama" class="absolute inset-0 w-full h-full z-0 opacity-80 mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#030303] z-0 pointer-events-none"></div>
+
+        <div class="relative z-10 container mx-auto px-6 pointer-events-none flex flex-col md:flex-row items-end justify-between h-full pb-20">
             
-            <div class="relative z-10 flex-grow flex flex-col justify-center items-center text-center px-6 pointer-events-none bg-black/40">
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg text-white">Bring Google Maps <br><span class="text-brandGold">Inside</span></h1>
-                <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto drop-shadow-md">Look around. This is what your customers will see.</p>
-                
-                <div class="flex justify-center items-center gap-4 flex-wrap pointer-events-auto">
-                    <div class="bg-white/90 backdrop-blur px-3 py-1.5 rounded"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Google_Street_View_trusted_badge.svg/512px-Google_Street_View_trusted_badge.svg.png" alt="Google Trusted" class="h-8"></div>
-                    <div class="bg-black/60 backdrop-blur text-orange-500 font-bold text-lg px-3 py-1.5 rounded border border-gray-700">#startupindia</div>
+            <div class="max-w-2xl text-left">
+                <div class="inline-flex items-center gap-3 glass-panel px-4 py-2 rounded-full mb-6 pointer-events-auto">
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-300">Google Street View Trusted</span>
                 </div>
-                
-                <div class="mt-8 pointer-events-auto">
-                    <a href="pricing.html" class="bg-brandGold text-brandDark px-8 py-3 text-lg rounded font-bold hover:bg-yellow-500 transition shadow-[0_0_15px_rgba(212,175,55,0.4)]">View Packages</a>
+                <h1 class="text-5xl md:text-8xl font-black font-heading leading-tight tracking-tighter mb-6 text-white drop-shadow-2xl">
+                    Bring Maps <br><span class="text-gradient-gold">Inside.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 font-light max-w-lg drop-shadow-lg mb-8">
+                    Stop telling customers how great your space looks. Let them walk through it right from Google Search.
+                </p>
+                <div class="pointer-events-auto">
+                    <a href="pricing.html" class="glass-panel text-white border border-yellow-500/30 px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition backdrop-blur-md inline-flex items-center gap-3">
+                        View Pricing <i class="fa-solid fa-arrow-right text-yellow-500"></i>
+                    </a>
                 </div>
             </div>
 
-            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none opacity-70 flex items-center gap-2 text-sm bg-black/50 px-4 py-1 rounded-full">
-                <i class="fa-solid fa-arrows-up-down-left-right"></i> Drag to explore
+            <div class="hidden md:flex flex-col gap-4 glass-panel p-6 rounded-2xl pointer-events-auto shadow-2xl border-white/5">
+                <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-2">Accredited By</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Google_Street_View_trusted_badge.svg/512px-Google_Street_View_trusted_badge.svg.png" alt="Google Trusted" class="h-10 object-contain">
+                <div class="h-px w-full bg-white/10 my-2"></div>
+                <div class="text-orange-500 font-bold text-sm tracking-wide">#STARTUPINDIA</div>
+                <div class="text-gray-300 font-bold text-xs">MSME: <span class="font-light">UDYAM-AS-03-0088382</span></div>
             </div>
-        </header>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none flex items-center gap-3 text-sm text-gray-400 animate-bounce">
+            <i class="fa-solid fa-hand-pointer text-yellow-500"></i> Drag to explore the room
+        </div>
+    </header>
 
-        <section class="container mx-auto px-6 py-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Perfect For Every Space</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="p-8 border border-gray-800 rounded hover:border-brandGold transition bg-gray-900">
-                    <i class="fa-solid fa-hotel text-4xl text-brandGold mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Hotels</h3>
-                    <p class="text-gray-400">Let guests explore rooms before booking.</p>
+    <section class="container mx-auto px-6 py-32 relative">
+        <div class="absolute w-[500px] h-[500px] bg-yellow-600/5 rounded-full blur-[100px] top-1/2 left-0 transform -translate-y-1/2 pointer-events-none"></div>
+        
+        <div class="text-center max-w-3xl mx-auto mb-20 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold font-heading mb-6">Designed For <span class="text-gradient-gold">Discovery</span></h2>
+            <p class="text-gray-400 text-lg">We build immersive digital twins for businesses that rely on their physical ambiance to drive revenue.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+            <div class="glass-panel p-10 rounded-3xl hover:-translate-y-2 transition-transform duration-500 group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-800 to-black border border-white/10 flex items-center justify-center mb-8 group-hover:border-yellow-500/50 transition-colors">
+                    <i class="fa-solid fa-hotel text-2xl text-yellow-500"></i>
                 </div>
-                <div class="p-8 border border-gray-800 rounded hover:border-brandGold transition bg-gray-900">
-                    <i class="fa-solid fa-mug-hot text-4xl text-brandGold mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Cafés</h3>
-                    <p class="text-gray-400">Showcase your ambiance to drive walk-ins.</p>
-                </div>
-                <div class="p-8 border border-gray-800 rounded hover:border-brandGold transition bg-gray-900">
-                    <i class="fa-solid fa-store text-4xl text-brandGold mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Stores</h3>
-                    <p class="text-gray-400">Highlight product layouts to local shoppers.</p>
-                </div>
+                <h3 class="text-2xl font-bold font-heading mb-4">Hotels & Resorts</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">Eliminate booking hesitation. Let guests stand in your suites and explore your amenities before they ever swipe their credit card.</p>
             </div>
-        </section>
-    </main>
+            
+            <div class="glass-panel p-10 rounded-3xl md:translate-y-12 hover:translate-y-10 transition-transform duration-500 group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-800 to-black border border-white/10 flex items-center justify-center mb-8 group-hover:border-yellow-500/50 transition-colors relative z-10">
+                    <i class="fa-solid fa-mug-hot text-2xl text-yellow-500"></i>
+                </div>
+                <h3 class="text-2xl font-bold font-heading mb-4 relative z-10">Cafés & Dining</h3>
+                <p class="text-gray-400 leading-relaxed text-sm relative z-10">Ambiance is your product. Showcase your table settings, lighting, and vibe directly on Google Maps to capture local searches.</p>
+            </div>
 
-    <footer class="border-t border-gray-800 py-8 text-center text-gray-500 bg-black mt-auto">
-        <p>&copy; 2026 ORBT°360. All rights reserved. MSME: UDYAM-AS-03-0088382</p>
+            <div class="glass-panel p-10 rounded-3xl hover:-translate-y-2 transition-transform duration-500 group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-800 to-black border border-white/10 flex items-center justify-center mb-8 group-hover:border-yellow-500/50 transition-colors">
+                    <i class="fa-solid fa-store text-2xl text-yellow-500"></i>
+                </div>
+                <h3 class="text-2xl font-bold font-heading mb-4">Retail Stores</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">Turn online browsers into foot traffic. Highlight your precise layout and product displays to local shoppers looking for specific items.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/5 py-12 mt-20 relative z-10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>&copy; 2026 ORBT°360. All rights reserved.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <span>Guwahati, Assam</span>
+                <span class="w-px h-4 bg-gray-800"></span>
+                <span>MSME: UDYAM-AS-03-0088382</span>
+            </div>
+        </div>
     </footer>
 
     <script>
         pannellum.viewer('hero-panorama', {
             "type": "equirectangular",
-            "panorama": "YOUR_COMPRESSED_360_IMAGE.jpg", /* REPLACE THIS WITH YOUR ACTUAL IMAGE */
+            "panorama": "YOUR_COMPRESSED_360_IMAGE.jpg", /* REPLACE WITH YOUR IMAGE */
             "autoLoad": true,
             "compass": false,
             "showZoomCtrl": false,
             "showFullscreenCtrl": false,
             "mouseZoom": false,
             "draggable": true,
-            "pitch": -5,
-            "yaw": 0,
-            "hfov": 100
+            "pitch": -2,
+            "yaw": 10,
+            "hfov": 110 /* Wider FOV for a more cinematic feel */
         });
     </script>
 </body>
 </html>
-                <div class="flex justify-center items-center gap-4 flex-wrap pointer-events-auto">
-                    <div class="bg-white/90 backdrop-blur px-3 py-1.5 rounded"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Google_Street_View_trusted_badge.svg/512px-Google_Street_View_trusted_badge.svg.png" alt="Google Trusted" class="h-8"></div>
-                    <div class="bg-black/60 backdrop-blur text-orange-500 font-bold text-lg px-3 py-1.5 rounded border border-gray-700">#startupindia</div>
-                </div>
-                
-                <div class="mt-8 pointer-events-auto">
-                    <a href="pricing.html" class="bg-brandGold text-brandDark px-8 py-3 text-lg rounded font-bold hover:bg-yellow-500 transition shadow-[0_0_15px_rgba(212,175,55,0.4)]">View Packages</a>
-                </div>
-            </div>
-
-            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none opacity-70 flex items-center gap-2 text-sm bg-black/50 px-4 py-1 rounded-full">
-                <i class="fa-solid fa-arrows-up-down-left-right"></i> Drag to explore
-            </div>
-        </header>
-
-        <section class="container mx-auto px-6 py-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Perfect For Every Space</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="p-8 border border-gray-800 rounded hover:border-brandGold transition bg-gray-900">
-                    <i class="fa-solid fa-hotel text-4xl text-brandGold mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Hotels</h3>
-                    <p class="text-gray-400">Let guests explore rooms before booking.</p>
-                </div>
-                <div class="p-8 border border-gray-800 rounded hover:border-brandGold transition bg-gray-900">
-                    <i class="fa-solid fa-mug-hot text-4xl text-brandGold mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Cafés</h3>
-                    <p class="text-gray-400">Showcase your ambiance to drive walk-ins.</p>
-                </div>
-                <div class="p-8 border border-gray-800 rounded hover:border-brandGold transition bg-gray-900">
-                    <i class="fa-solid fa-store text-4xl text-brandGold mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2">Stores</h3>
-                    <p class="text-gray-400">Highlight product layouts to local shoppers.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="border-t border-gray-800 py-8 text-center text-gray-500 bg-black mt-auto">
-        <p>&copy; 2026 ORBT°360. All rights reserved. MSME: UDYAM-AS-03-0088382</p>
-    </footer>
-
-    <script>
-        pannellum.viewer('hero-panorama', {
-            "type": "equirectangular",
-            "panorama": "YOUR_COMPRESSED_360_IMAGE.jpg", /* REPLACE THIS WITH YOUR ACTUAL IMAGE */
-            "autoLoad": true,
-            "compass": false,
-            "showZoomCtrl": false,
-            "showFullscreenCtrl": false,
-            "mouseZoom": false,
-            "draggable": true,
-            "pitch": -5,
-            "yaw": 0,
-            "hfov": 100
-        });
-    </script>
-</body>
-</html>
+    
