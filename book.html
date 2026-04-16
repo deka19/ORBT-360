@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -28,14 +27,13 @@
     </script>
     <style>
         body { color: #f5f0e8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
-        .noise { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.03; background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E'); }
         .glass-card { background: rgba(25, 25, 25, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(245, 240, 232, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #050505; } ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-dark flex flex-col min-h-screen">
-    <div class="noise"></div>
 
-    <nav class="fixed top-0 w-full z-50 mix-blend-difference px-6 py-8">
+    <nav class="fixed top-0 w-full z-50 bg-dark/90 backdrop-blur-md border-b border-primary/5 px-6 py-6">
         <div class="flex justify-between items-center max-w-7xl mx-auto">
             <a href="index.html" class="text-2xl font-extrabold font-heading tracking-tight text-primary">ORBT<span class="text-accent">°</span><span class="font-numbers">360</span></a>
             <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-muted">
@@ -104,10 +102,5 @@
         &copy; <span class="font-numbers">2026</span> ORBT°<span class="font-numbers">360</span>.
     </footer>
 
-    <script>
-        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))});
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-    </script>
 </body>
 </html>
