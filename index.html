@@ -1,143 +1,143 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth bg-[#050505]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORBT°360 | Immersive Virtual Tours</title>
+    <title>ORBT°360 | Immersive Digital Twins</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { heading: ['Montserrat', 'sans-serif'], body: ['Montserrat', 'sans-serif'], numbers: ['"Archivo Black"', 'sans-serif'], },
+                    colors: { 
+                        dark: '#050505', 
+                        accent: '#c9a84c', 
+                        primary: '#f5f0e8',
+                        muted: 'rgba(245, 240, 232, 0.6)' 
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030303; color: #f3f4f6; }
-        h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
-        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .text-gradient-gold { background: linear-gradient(135deg, #FDE047 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glow-bg { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(0,0,0,0) 70%); top: -200px; right: -200px; z-index: -1; pointer-events: none; }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #030303; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+        body { color: #f5f0e8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+        .noise { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.03; background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E'); }
+        .text-outline { -webkit-text-stroke: 1px rgba(245, 240, 232, 0.2); color: transparent; }
+        .glass-card { background: rgba(25, 25, 25, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(245, 240, 232, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(201, 168, 76, 0.3); background: rgba(30, 30, 30, 0.6); transform: translateY(-4px); }
+        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #050505; } ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
     </style>
 </head>
-<body class="antialiased relative overflow-x-hidden">
+<body class="antialiased selection:bg-accent selection:text-dark">
+    <div class="noise"></div>
 
-    <div class="glow-bg"></div>
-
-    <div class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-        <nav class="glass-panel rounded-full px-8 py-4 flex justify-between items-center w-full max-w-5xl shadow-2xl">
-            <a href="index.html" class="text-2xl font-extrabold tracking-widest text-white font-heading">ORBT<span class="text-gradient-gold">°</span>360</a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="index.html" class="text-yellow-500 transition">Home</a>
-                <a href="pricing.html" class="text-gray-300 hover:text-white transition">Packages</a>
-                <a href="book.html" class="text-gray-300 hover:text-white transition">Book Shoot</a>
+    <nav class="fixed top-0 w-full z-50 mix-blend-difference px-6 py-8">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
+            <a href="index.html" class="text-2xl font-extrabold font-heading tracking-tight text-primary">ORBT<span class="text-accent">°</span><span class="font-numbers">360</span></a>
+            <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-muted">
+                <a href="index.html" class="text-primary">Home</a>
+                <a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a>
             </div>
-            <a href="book.html" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(212,175,55,0.3)]">Get Started</a>
-        </nav>
-    </div>
-
-    <header class="relative w-full h-[85vh] md:h-screen flex items-center justify-center pt-20">
-        <div id="hero-panorama" class="absolute inset-0 w-full h-full z-0 opacity-80 mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#030303] z-0 pointer-events-none"></div>
-
-        <div class="relative z-10 container mx-auto px-6 pointer-events-none flex flex-col md:flex-row items-end justify-between h-full pb-20">
-            
-            <div class="max-w-2xl text-left">
-                <div class="inline-flex items-center gap-3 glass-panel px-4 py-2 rounded-full mb-6 pointer-events-auto">
-                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-300">Google Street View Trusted</span>
-                </div>
-                <h1 class="text-5xl md:text-8xl font-black font-heading leading-tight tracking-tighter mb-6 text-white drop-shadow-2xl">
-                    Bring Maps <br><span class="text-gradient-gold">Inside.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-300 font-light max-w-lg drop-shadow-lg mb-8">
-                    Stop telling customers how great your space looks. Let them walk through it right from Google Search.
-                </p>
-                <div class="pointer-events-auto">
-                    <a href="pricing.html" class="glass-panel text-white border border-yellow-500/30 px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition backdrop-blur-md inline-flex items-center gap-3">
-                        View Pricing <i class="fa-solid fa-arrow-right text-yellow-500"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="hidden md:flex flex-col gap-4 glass-panel p-6 rounded-2xl pointer-events-auto shadow-2xl border-white/5">
-                <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-2">Accredited By</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Google_Street_View_trusted_badge.svg/512px-Google_Street_View_trusted_badge.svg.png" alt="Google Trusted" class="h-10 object-contain">
-                <div class="h-px w-full bg-white/10 my-2"></div>
-                <div class="text-orange-500 font-bold text-sm tracking-wide">#STARTUPINDIA</div>
-                <div class="text-gray-300 font-bold text-xs">MSME: <span class="font-light">UDYAM-AS-03-0088382</span></div>
-            </div>
+            <a href="book.html" class="group relative px-6 py-2 overflow-hidden rounded-full border border-primary/20 text-sm font-bold uppercase tracking-wider">
+                <span class="relative z-10 text-primary group-hover:text-dark transition-colors duration-500">Book Shoot</span>
+                <div class="absolute inset-0 bg-accent translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+            </a>
         </div>
-        
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none flex items-center gap-3 text-sm text-gray-400 animate-bounce">
-            <i class="fa-solid fa-hand-pointer text-yellow-500"></i> Drag to explore the room
+    </nav>
+
+    <header class="relative min-h-screen flex items-center pt-32 pb-20 px-6">
+        <div class="absolute top-1/4 right-10 w-[40vw] h-[40vw] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-end relative z-10">
+            <div class="lg:col-span-8">
+                <div class="inline-flex items-center gap-3 mb-8 px-4 py-2 rounded-full border border-primary/10 bg-primary/5 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-xs uppercase tracking-widest font-bold text-muted">Google Street View Trusted</span>
+                </div>
+                <h1 class="text-[11vw] lg:text-[6.5rem] leading-[0.9] font-heading font-extrabold tracking-tighter mb-8 uppercase">
+                    Step <span class="text-outline">Inside</span><br>
+                    Before You <br>
+                    <span class="text-accent">Arrive.</span>
+                </h1>
+            </div>
+            <div class="lg:col-span-4 pb-4">
+                <p class="text-lg md:text-xl text-muted font-medium leading-relaxed mb-8">
+                    Architecting immersive digital twins for hospitality and retail. Drive massive walk-ins directly from Google Maps.
+                </p>
+                <div class="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-wider">
+                    <div class="px-5 py-3 rounded-full border border-primary/10 text-muted">#STARTUPINDIA</div>
+                    <div class="px-5 py-3 rounded-full border border-primary/10 text-muted">MSME <span class="font-numbers tracking-widest">03</span></div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="container mx-auto px-6 py-32 relative">
-        <div class="absolute w-[500px] h-[500px] bg-yellow-600/5 rounded-full blur-[100px] top-1/2 left-0 transform -translate-y-1/2 pointer-events-none"></div>
-        
-        <div class="text-center max-w-3xl mx-auto mb-20 relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold font-heading mb-6">Designed For <span class="text-gradient-gold">Discovery</span></h2>
-            <p class="text-gray-400 text-lg">We build immersive digital twins for businesses that rely on their physical ambiance to drive revenue.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-            <div class="glass-panel p-10 rounded-3xl hover:-translate-y-2 transition-transform duration-500 group">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-800 to-black border border-white/10 flex items-center justify-center mb-8 group-hover:border-yellow-500/50 transition-colors">
-                    <i class="fa-solid fa-hotel text-2xl text-yellow-500"></i>
+    <section class="py-24 px-6 border-t border-primary/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-heading font-extrabold tracking-tight uppercase mb-12">The <span class="text-accent">Visuals.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="aspect-square bg-primary/5 rounded-2xl overflow-hidden border border-primary/10 group">
+                    <img src="1000770295.jpg" alt="Portfolio 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0">
                 </div>
-                <h3 class="text-2xl font-bold font-heading mb-4">Hotels & Resorts</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Eliminate booking hesitation. Let guests stand in your suites and explore your amenities before they ever swipe their credit card.</p>
-            </div>
-            
-            <div class="glass-panel p-10 rounded-3xl md:translate-y-12 hover:translate-y-10 transition-transform duration-500 group relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-b from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-800 to-black border border-white/10 flex items-center justify-center mb-8 group-hover:border-yellow-500/50 transition-colors relative z-10">
-                    <i class="fa-solid fa-mug-hot text-2xl text-yellow-500"></i>
+                <div class="aspect-[3/4] md:aspect-square bg-primary/5 rounded-2xl overflow-hidden border border-primary/10 group md:translate-y-12">
+                    <img src="1000770296.jpg" alt="Portfolio 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0">
                 </div>
-                <h3 class="text-2xl font-bold font-heading mb-4 relative z-10">Cafés & Dining</h3>
-                <p class="text-gray-400 leading-relaxed text-sm relative z-10">Ambiance is your product. Showcase your table settings, lighting, and vibe directly on Google Maps to capture local searches.</p>
-            </div>
-
-            <div class="glass-panel p-10 rounded-3xl hover:-translate-y-2 transition-transform duration-500 group">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-800 to-black border border-white/10 flex items-center justify-center mb-8 group-hover:border-yellow-500/50 transition-colors">
-                    <i class="fa-solid fa-store text-2xl text-yellow-500"></i>
+                <div class="aspect-square bg-primary/5 rounded-2xl overflow-hidden border border-primary/10 group">
+                    <img src="1000770287.jpg" alt="Portfolio 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0">
                 </div>
-                <h3 class="text-2xl font-bold font-heading mb-4">Retail Stores</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Turn online browsers into foot traffic. Highlight your precise layout and product displays to local shoppers looking for specific items.</p>
             </div>
         </div>
     </section>
 
-    <footer class="border-t border-white/5 py-12 mt-20 relative z-10">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <p>&copy; 2026 ORBT°360. All rights reserved.</p>
-            <div class="flex gap-6 mt-4 md:mt-0">
-                <span>Guwahati, Assam</span>
-                <span class="w-px h-4 bg-gray-800"></span>
-                <span>MSME: UDYAM-AS-03-0088382</span>
+    <section class="py-32 px-6 border-t border-primary/5 bg-[#080808]">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-heading font-extrabold tracking-tight uppercase mb-16">The Ecosystem</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+                <div class="glass-card md:col-span-2 md:row-span-2 rounded-[2rem] p-10 flex flex-col justify-between group">
+                    <i class="fa-solid fa-hotel text-4xl text-accent mb-4"></i>
+                    <div>
+                        <h3 class="text-3xl font-heading font-extrabold mb-3 uppercase tracking-tight">Hospitality & Hotels</h3>
+                        <p class="text-muted font-medium leading-relaxed">Destroy booking friction. Allow prospective guests to walk through your premium suites from their smartphone.</p>
+                    </div>
+                </div>
+                <div class="glass-card md:col-span-1 md:row-span-1 rounded-[2rem] p-8 flex flex-col justify-center items-center text-center">
+                    <h4 class="text-5xl text-accent mb-2"><span class="font-numbers tracking-tight">48</span><span class="font-heading font-extrabold text-3xl">h</span></h4>
+                    <p class="text-sm text-muted uppercase font-bold tracking-widest">Go-Live SLA</p>
+                </div>
+                <div class="glass-card md:col-span-1 md:row-span-1 rounded-[2rem] p-8 flex flex-col justify-between">
+                    <i class="fa-solid fa-store text-2xl text-muted"></i>
+                    <div>
+                        <h4 class="text-xl font-heading font-extrabold mb-1 uppercase">Retail Layouts</h4>
+                        <p class="text-xs text-muted font-medium">Showcase inventory instantly.</p>
+                    </div>
+                </div>
+                <a href="pricing.html" class="glass-card md:col-span-2 md:row-span-1 rounded-[2rem] p-8 flex items-center justify-between group cursor-pointer hover:border-accent">
+                    <div>
+                        <p class="text-sm text-accent uppercase tracking-widest font-bold mb-2">Next Step</p>
+                        <h4 class="text-2xl font-heading font-extrabold uppercase">View Packages</h4>
+                    </div>
+                    <div class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center group-hover:bg-accent group-hover:text-dark transition-colors duration-300">
+                        <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    </div>
+                </a>
             </div>
         </div>
+    </section>
+
+    <footer class="py-12 text-center text-sm font-bold tracking-widest uppercase text-muted border-t border-primary/5">
+        &copy; <span class="font-numbers">2026</span> ORBT°<span class="font-numbers">360</span>. All systems operational.
     </footer>
 
     <script>
-        pannellum.viewer('hero-panorama', {
-            "type": "equirectangular",
-            "panorama": "YOUR_COMPRESSED_360_IMAGE.jpg", /* REPLACE WITH YOUR IMAGE */
-            "autoLoad": true,
-            "compass": false,
-            "showZoomCtrl": false,
-            "showFullscreenCtrl": false,
-            "mouseZoom": false,
-            "draggable": true,
-            "pitch": -2,
-            "yaw": 10,
-            "hfov": 110 /* Wider FOV for a more cinematic feel */
-        });
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))});
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
     </script>
 </body>
 </html>
-    
