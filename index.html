@@ -37,8 +37,8 @@
         }
         
         #dynamic-logo {
-            top: 25vh;
-            height: 120px;
+            top: 18vh; /* Tucked slightly higher to ensure clearance */
+            height: 100px; /* Streamlined for desktop elegance */
             filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5));
             transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -46,7 +46,7 @@
         @media (max-width: 768px) {
             #dynamic-logo {
                 top: 15vh;
-                height: 80px;
+                height: 70px;
             }
         }
 
@@ -93,7 +93,6 @@
 
     <nav id="main-header" class="fixed top-0 w-full z-50 px-6 py-8 bg-transparent border-b border-transparent">
         <div class="grid grid-cols-2 md:grid-cols-3 items-center max-w-7xl mx-auto w-full">
-            
             <div class="hidden md:block pointer-events-none"></div>
             
             <div class="hidden md:flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-primary/80 drop-shadow-md">
@@ -116,7 +115,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/30 to-dark"></div>
         </div>
         
-        <div class="relative z-10 max-w-7xl mx-auto w-full h-full flex flex-col justify-center pt-24">
+        <div class="relative z-10 max-w-7xl mx-auto w-full h-full flex flex-col justify-end pb-[15vh] md:pb-[20vh]">
             <h1 class="text-[8vw] md:text-6xl lg:text-7xl xl:text-[6.5rem] font-heading font-extrabold uppercase tracking-tighter leading-[0.9] text-primary drop-shadow-2xl max-w-5xl">
                 BRING GOOGLE MAPS<br>INSIDE YOUR BUSINESS
             </h1>
@@ -198,7 +197,6 @@
             }
         }, { passive: true });
         
-        // Initial check on load
         updateHeader();
     </script>
 </body>
