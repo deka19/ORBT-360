@@ -36,11 +36,18 @@
             transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
         
+        /* Hero Logo Initial State */
         #dynamic-logo {
-            top: 20vh; /* Shifted slightly up */
-            height: 120px;
+            top: 20vh; /* Raised slightly to prevent desktop overlap */
+            height: 90px; /* Safe size for 13-inch laptops */
             filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5));
             transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        @media (min-width: 1024px) {
+            #dynamic-logo {
+                height: 130px; /* Scales up beautifully on large desktop monitors */
+            }
         }
         
         @media (max-width: 768px) {
@@ -110,14 +117,14 @@
         </div>
     </nav>
 
-    <header class="relative h-screen w-full px-6 overflow-hidden">
+    <header class="relative h-screen min-h-[700px] w-full px-6 overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="1000770287.jpg" alt="Immersive Virtual Tour" class="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]">
             <div class="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/30 to-dark"></div>
         </div>
         
-        <div class="relative z-10 max-w-7xl mx-auto w-full h-full flex flex-col justify-end pb-20 md:pb-32">
-            <h1 class="text-[9vw] md:text-6xl lg:text-7xl xl:text-[7.5rem] font-heading font-extrabold uppercase tracking-tighter leading-[0.9] text-primary drop-shadow-2xl max-w-5xl">
+        <div class="relative z-10 max-w-7xl mx-auto w-full h-full flex flex-col justify-end pb-24 md:pb-32 pt-32">
+            <h1 class="text-[8vw] md:text-6xl lg:text-7xl xl:text-[7rem] font-heading font-extrabold uppercase tracking-tighter leading-[0.9] text-primary drop-shadow-2xl max-w-5xl">
                 BRING GOOGLE MAPS<br>INSIDE YOUR BUSINESS
             </h1>
         </div>
