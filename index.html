@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORBT°360 | Immersive Digital Twins</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,7 +112,6 @@
             }
         }
         @media (min-width: 768px) {
-            /* Ensures Grid works perfectly when Swiper is destroyed on Desktop */
             .desktop-grid {
                 display: grid !important;
                 grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -180,16 +178,28 @@
             <div class="swiper visualsSwiper w-full pb-12 md:pb-0">
                 <div class="swiper-wrapper desktop-grid">
                     
-                    <div class="swiper-slide aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
+                    <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
                         <img src="1000770295.jpg" alt="Portfolio 1" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
+                        
+                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i> Maps
+                        </a>
                     </div>
                     
-                    <div class="swiper-slide aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
+                    <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
                         <img src="1000770296.jpg" alt="Portfolio 2" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
+                        
+                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i> Maps
+                        </a>
                     </div>
                     
-                    <div class="swiper-slide aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
+                    <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
                         <img src="1000770288.jpg" alt="Portfolio 3" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
+                        
+                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i> Maps
+                        </a>
                     </div>
                     
                 </div>
@@ -257,10 +267,8 @@
             }
         }, { passive: true });
         
-        // Initial check on load
         updateHeader();
 
-        // Mobile Carousel Swiper Initialization
         let visualsSwiper;
         function initVisualsSwiper() {
             if (window.innerWidth < 768) {
@@ -284,11 +292,8 @@
             }
         }
         
-        // Handle window resize
         window.addEventListener('resize', initVisualsSwiper);
-        // Initialize on load
         initVisualsSwiper();
     </script>
 </body>
-</html>
 </html>
