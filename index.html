@@ -61,8 +61,8 @@
             }
         }
 
-        /* Scrolled CTA Button Logic */
-        #nav-cta {
+        /* Scrolled Navigation Logic (Hides Menu & CTA on Load) */
+        #nav-links, #nav-cta {
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -85,7 +85,7 @@
             padding-bottom: 1.25rem;
         }
 
-        .scrolled #nav-cta {
+        .scrolled #nav-links, .scrolled #nav-cta {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
@@ -107,7 +107,7 @@
             
             <div class="hidden md:block pointer-events-none"></div>
             
-            <div class="hidden md:flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-primary/80 drop-shadow-md">
+            <div id="nav-links" class="hidden md:flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-primary/80 drop-shadow-md">
                 <a href="index.html" class="text-primary">Home</a>
                 <a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a>
             </div>
