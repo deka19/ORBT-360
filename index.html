@@ -31,15 +31,13 @@
         .glass-card:hover { border-color: rgba(201, 168, 76, 0.3); background: rgba(30, 30, 30, 0.6); transform: translateY(-4px); }
         ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #050505; } ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
 
+        /* "The Ordinary" Transition Mechanics */
         #main-header {
             transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
         
-        /* Centered Logo Initial State */
         #dynamic-logo {
             top: 25vh;
-            left: 50%;
-            transform: translateX(-50%);
             height: 120px;
             filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5));
             transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -52,6 +50,7 @@
             }
         }
 
+        /* Scrolled CTA Button Logic */
         #nav-cta {
             opacity: 0;
             visibility: hidden;
@@ -59,11 +58,9 @@
             transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        /* Scrolled State: Logo moves to Top Left */
+        /* Scrolled State Applies to All */
         .scrolled #dynamic-logo {
             top: 1.25rem !important; 
-            left: 0 !important;
-            transform: translateX(0) !important;
             height: 40px !important; 
             filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)) !important;
         }
@@ -88,7 +85,7 @@
 
     <div class="fixed top-0 left-0 w-full h-0 z-[60] pointer-events-none flex justify-center px-6">
         <div class="w-full max-w-7xl relative h-0">
-            <a href="index.html" id="dynamic-logo" class="absolute pointer-events-auto block">
+            <a href="index.html" id="dynamic-logo" class="absolute left-0 pointer-events-auto block">
                 <img src="Untitled-1-Photoroom.png" alt="ORBT 360 Logo" class="w-auto h-full object-contain">
             </a>
         </div>
@@ -119,8 +116,8 @@
             <div class="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/30 to-dark"></div>
         </div>
         
-        <div class="relative z-10 max-w-7xl mx-auto w-full h-full flex flex-col justify-end pb-24 md:pb-32">
-            <h1 class="text-[8vw] md:text-6xl lg:text-7xl xl:text-[7rem] font-heading font-extrabold uppercase tracking-tighter leading-[0.9] text-primary drop-shadow-2xl max-w-4xl text-left">
+        <div class="relative z-10 max-w-7xl mx-auto w-full h-full flex flex-col justify-center pt-24">
+            <h1 class="text-[8vw] md:text-6xl lg:text-7xl xl:text-[6.5rem] font-heading font-extrabold uppercase tracking-tighter leading-[0.9] text-primary drop-shadow-2xl max-w-5xl">
                 BRING GOOGLE MAPS<br>INSIDE YOUR BUSINESS
             </h1>
         </div>
@@ -201,6 +198,7 @@
             }
         }, { passive: true });
         
+        // Initial check on load
         updateHeader();
     </script>
 </body>
