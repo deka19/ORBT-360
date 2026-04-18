@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;800;900&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     <script>
@@ -33,17 +33,6 @@
         .glass-card:hover { border-color: rgba(201, 168, 76, 0.3); background: rgba(30, 30, 30, 0.6); transform: translateY(-4px); }
         ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #050505; } ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
 
-        /* Editorial Typography Stroke */
-        .text-outline-primary {
-            color: transparent;
-            -webkit-text-stroke: 2px #f5f0e8;
-        }
-        @media (max-width: 768px) {
-            .text-outline-primary {
-                -webkit-text-stroke: 1px #f5f0e8;
-            }
-        }
-
         /* "The Ordinary" Transition Mechanics */
         #main-header {
             transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -63,7 +52,7 @@
             }
         }
 
-        /* Scrolled Navigation Logic (Hides Menu & CTA on Load) */
+        /* Scrolled Navigation Logic */
         #nav-links, #nav-cta {
             opacity: 0;
             visibility: hidden;
@@ -71,7 +60,7 @@
             transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        /* Scrolled State Applies to All */
+        /* Scrolled State */
         .scrolled #dynamic-logo {
             top: 1.25rem !important; 
             height: 40px !important; 
@@ -93,7 +82,7 @@
             transform: translateY(0);
         }
 
-        /* Zomato-Style Mobile Carousel Scaling */
+        /* Mobile Carousel Scaling */
         @media (max-width: 767px) {
             .swiper-slide {
                 transition: transform 0.4s ease, opacity 0.4s ease;
@@ -128,7 +117,7 @@
     <div class="fixed top-0 left-0 w-full h-0 z-[60] pointer-events-none flex justify-center px-6">
         <div class="w-full max-w-7xl relative h-0">
             <a href="index.html" id="dynamic-logo" class="absolute left-0 pointer-events-auto block">
-                <img src="Untitled-1-Photoroom.png" alt="ORBT 360 Logo" class="w-auto h-full object-contain">
+                <img src="Untitled-1-Photoroom.png" alt="ORBT 360 Logo" class="w-auto h-full object-contain object-left">
             </a>
         </div>
     </div>
@@ -163,9 +152,8 @@
                 <span class="block text-[10vw] md:text-6xl lg:text-7xl xl:text-[7.5rem] text-primary">
                     BRING GOOGLE MAPS
                 </span>
-                <span class="block text-[10vw] md:text-6xl lg:text-7xl xl:text-[7.5rem] mt-2 md:mt-4">
-                    <span class="text-primary">INSIDE YOUR</span> 
-                    <span class="text-outline-primary block md:inline mt-2 md:mt-0">BUSINESS</span>
+                <span class="block text-[10vw] md:text-6xl lg:text-7xl xl:text-[7.5rem] mt-2 md:mt-4 text-primary">
+                    INSIDE YOUR BUSINESS
                 </span>
             </h1>
         </div>
@@ -180,25 +168,22 @@
                     
                     <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
                         <img src="1000770295.jpg" alt="Portfolio 1" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
-                        
-                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
-                            <i class="fa-solid fa-location-dot"></i> Maps
+                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center text-sm hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i>
                         </a>
                     </div>
                     
                     <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
                         <img src="1000770296.jpg" alt="Portfolio 2" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
-                        
-                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
-                            <i class="fa-solid fa-location-dot"></i> Maps
+                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center text-sm hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i>
                         </a>
                     </div>
                     
                     <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
                         <img src="1000770288.jpg" alt="Portfolio 3" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
-                        
-                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
-                            <i class="fa-solid fa-location-dot"></i> Maps
+                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center text-sm hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i>
                         </a>
                     </div>
                     
@@ -269,6 +254,7 @@
         
         updateHeader();
 
+        // Infinite Loop Autoplay Carousel
         let visualsSwiper;
         function initVisualsSwiper() {
             if (window.innerWidth < 768) {
@@ -278,6 +264,10 @@
                         centeredSlides: true,
                         spaceBetween: 20,
                         loop: true,
+                        autoplay: {
+                            delay: 2500, // Slides automatically every 2.5 seconds
+                            disableOnInteraction: false, // Keeps playing even after user swipes
+                        },
                         pagination: {
                             el: '.swiper-pagination',
                             clickable: true,
