@@ -29,14 +29,26 @@
     </script>
     <style>
         body { color: #f5f0e8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
-        .glass-card { background: rgba(25, 25, 25, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(245, 240, 232, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .glass-card:hover { border-color: rgba(201, 168, 76, 0.3); background: rgba(30, 30, 30, 0.6); transform: translateY(-4px); }
+        
+        /* Premium Glass Card */
+        .glass-card { 
+            background: rgba(25, 25, 25, 0.4); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border: 1px solid rgba(245, 240, 232, 0.05); 
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .glass-card:hover { 
+            border-color: rgba(201, 168, 76, 0.3); 
+            background: rgba(30, 30, 30, 0.6); 
+            transform: translateY(-4px); 
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+        }
+        
         ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #050505; } ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
 
         /* "The Ordinary" Transition Mechanics */
-        #main-header {
-            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+        #main-header { transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
         
         #dynamic-logo {
             top: 25vh;
@@ -46,10 +58,7 @@
         }
         
         @media (max-width: 768px) {
-            #dynamic-logo {
-                top: 15vh;
-                height: 80px;
-            }
+            #dynamic-logo { top: 15vh; height: 80px; }
         }
 
         /* Scrolled Navigation Logic */
@@ -77,9 +86,7 @@
         }
 
         .scrolled #nav-links, .scrolled #nav-cta {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+            opacity: 1; visibility: visible; transform: translateY(0);
         }
 
         /* Mobile Carousel Scaling */
@@ -89,16 +96,9 @@
                 transform: scale(0.85);
                 opacity: 0.5;
             }
-            .swiper-slide-active {
-                transform: scale(1);
-                opacity: 1;
-            }
-            .swiper-pagination-bullet {
-                background: rgba(245, 240, 232, 0.4);
-            }
-            .swiper-pagination-bullet-active {
-                background: #c9a84c;
-            }
+            .swiper-slide-active { transform: scale(1); opacity: 1; }
+            .swiper-pagination-bullet { background: rgba(245, 240, 232, 0.4); }
+            .swiper-pagination-bullet-active { background: #c9a84c; }
         }
         @media (min-width: 768px) {
             .desktop-grid {
@@ -106,9 +106,7 @@
                 grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
                 gap: 2rem !important;
             }
-            .swiper-wrapper {
-                transform: none !important;
-            }
+            .swiper-wrapper { transform: none !important; }
         }
     </style>
 </head>
@@ -124,7 +122,6 @@
 
     <nav id="main-header" class="fixed top-0 w-full z-50 px-6 py-8 bg-transparent border-b border-transparent">
         <div class="grid grid-cols-2 md:grid-cols-3 items-center max-w-7xl mx-auto w-full">
-            
             <div class="hidden md:block pointer-events-none"></div>
             
             <div id="nav-links" class="hidden md:flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-primary/80 drop-shadow-md">
@@ -165,63 +162,85 @@
             
             <div class="swiper visualsSwiper w-full pb-12 md:pb-0">
                 <div class="swiper-wrapper desktop-grid">
-                    
                     <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
                         <img src="1000770295.jpg" alt="Portfolio 1" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
                         <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center text-sm hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
                             <i class="fa-solid fa-location-dot"></i>
                         </a>
                     </div>
-                    
                     <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
                         <img src="1000770296.jpg" alt="Portfolio 2" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
                         <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center text-sm hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
                             <i class="fa-solid fa-location-dot"></i>
                         </a>
                     </div>
-                    
                     <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
                         <img src="1000770288.jpg" alt="Portfolio 3" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
                         <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center text-sm hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
                             <i class="fa-solid fa-location-dot"></i>
                         </a>
                     </div>
-                    
                 </div>
                 <div class="swiper-pagination md:hidden !bottom-0"></div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 border-t border-primary/5 bg-[#080808]">
-        <div class="max-w-7xl mx-auto">
+    <section class="py-32 px-6 border-t border-primary/5 bg-[#080808] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
             <h2 class="text-4xl md:text-6xl font-heading font-extrabold tracking-tight uppercase mb-16">The Ecosystem</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
-                <div class="glass-card md:col-span-2 md:row-span-2 rounded-[2rem] p-10 flex flex-col justify-between group">
-                    <i class="fa-solid fa-hotel text-4xl text-accent mb-4"></i>
-                    <div>
-                        <h3 class="text-3xl font-heading font-extrabold mb-3 uppercase tracking-tight">Hospitality & Hotels</h3>
-                        <p class="text-muted font-medium leading-relaxed">Destroy booking friction. Allow prospective guests to walk through your premium suites from their smartphone.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:auto-rows-[250px]">
+                
+                <div class="glass-card relative overflow-hidden md:col-span-2 md:row-span-2 rounded-[2rem] p-10 flex flex-col justify-between group min-h-[320px] md:min-h-0">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+                    
+                    <i class="fa-solid fa-hotel absolute -bottom-16 -right-16 text-[16rem] text-primary/5 group-hover:text-accent/10 transition-colors duration-700 z-0 transform group-hover:scale-110"></i>
+                    
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-8 backdrop-blur-md group-hover:border-accent/50 transition-colors duration-500">
+                            <i class="fa-solid fa-hotel text-2xl text-accent"></i>
+                        </div>
+                    </div>
+                    <div class="relative z-10 mt-auto pt-8">
+                        <h3 class="text-3xl md:text-4xl font-heading font-extrabold mb-4 uppercase tracking-tight text-primary drop-shadow-md">Hospitality & Hotels</h3>
+                        <p class="text-muted font-medium leading-relaxed md:text-lg max-w-md">Destroy booking friction. Allow prospective guests to walk through your premium suites from their smartphone.</p>
                     </div>
                 </div>
-                <div class="glass-card md:col-span-1 md:row-span-1 rounded-[2rem] p-8 flex flex-col justify-center items-center text-center">
-                    <h4 class="text-5xl text-accent mb-2"><span class="font-numbers tracking-tight">48</span><span class="font-heading font-extrabold text-3xl">h</span></h4>
-                    <p class="text-sm text-muted uppercase font-bold tracking-widest">Go-Live SLA</p>
-                </div>
-                <div class="glass-card md:col-span-1 md:row-span-1 rounded-[2rem] p-8 flex flex-col justify-between">
-                    <i class="fa-solid fa-store text-2xl text-muted"></i>
-                    <div>
-                        <h4 class="text-xl font-heading font-extrabold mb-1 uppercase">Retail Layouts</h4>
-                        <p class="text-xs text-muted font-medium">Showcase inventory instantly.</p>
+
+                <div class="glass-card relative overflow-hidden md:col-span-1 md:row-span-1 rounded-[2rem] p-8 flex flex-col justify-center items-center text-center group min-h-[220px] md:min-h-0">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-accent/10 blur-[40px] rounded-full group-hover:bg-accent/20 transition-colors duration-700 z-0"></div>
+                    
+                    <div class="relative z-10">
+                        <h4 class="text-6xl text-accent mb-2 drop-shadow-lg transform group-hover:scale-105 transition-transform duration-500"><span class="font-numbers tracking-tight">48</span><span class="font-heading font-extrabold text-4xl">h</span></h4>
+                        <p class="text-sm text-primary/70 uppercase font-bold tracking-widest group-hover:text-primary transition-colors duration-300">Go-Live SLA</p>
                     </div>
                 </div>
-                <a href="pricing.html" class="glass-card md:col-span-2 md:row-span-1 rounded-[2rem] p-8 flex items-center justify-between group cursor-pointer hover:border-accent">
-                    <div>
-                        <p class="text-sm text-accent uppercase tracking-widest font-bold mb-2">Next Step</p>
-                        <h4 class="text-2xl font-heading font-extrabold uppercase">View Packages</h4>
+
+                <div class="glass-card relative overflow-hidden md:col-span-1 md:row-span-1 rounded-[2rem] p-8 flex flex-col justify-between group min-h-[220px] md:min-h-0">
+                    <i class="fa-solid fa-store absolute -top-8 -right-8 text-[10rem] text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12"></i>
+                    
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-6 backdrop-blur-md group-hover:border-primary/30 transition-colors duration-500">
+                            <i class="fa-solid fa-store text-xl text-primary/70 group-hover:text-primary transition-colors"></i>
+                        </div>
                     </div>
-                    <div class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center group-hover:bg-accent group-hover:text-dark transition-colors duration-300">
-                        <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                    <div class="relative z-10 mt-auto">
+                        <h4 class="text-xl md:text-2xl font-heading font-extrabold mb-2 uppercase tracking-tight text-primary">Retail Layouts</h4>
+                        <p class="text-sm text-muted font-medium">Showcase inventory instantly to local searchers.</p>
+                    </div>
+                </div>
+
+                <a href="pricing.html" class="glass-card relative overflow-hidden md:col-span-2 md:row-span-1 rounded-[2rem] p-8 flex flex-col md:flex-row items-start md:items-center justify-between group cursor-pointer hover:border-accent min-h-[180px] md:min-h-0">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+                    
+                    <div class="relative z-10 mb-6 md:mb-0">
+                        <p class="text-xs text-accent uppercase tracking-widest font-bold mb-2">Take The Next Step</p>
+                        <h4 class="text-3xl font-heading font-extrabold uppercase tracking-tight text-primary">View Packages</h4>
+                    </div>
+                    
+                    <div class="relative z-10 w-16 h-16 shrink-0 rounded-full border-2 border-primary/20 flex items-center justify-center text-xl group-hover:bg-accent group-hover:text-dark group-hover:border-accent transition-all duration-500 transform group-hover:translate-x-2 shadow-lg">
+                        <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-500"></i>
                     </div>
                 </a>
             </div>
@@ -229,7 +248,7 @@
     </section>
 
     <footer class="py-12 text-center text-sm font-bold tracking-widest uppercase text-muted border-t border-primary/5">
-        &copy; <span class="font-numbers">2026</span> ORBT°<span class="font-numbers">360</span>. All systems operational.
+        © <span class="font-numbers">2026</span> ORBT°<span class="font-numbers">360</span>. All systems operational.
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -265,8 +284,8 @@
                         spaceBetween: 20,
                         loop: true,
                         autoplay: {
-                            delay: 2500, // Slides automatically every 2.5 seconds
-                            disableOnInteraction: false, // Keeps playing even after user swipes
+                            delay: 2500,
+                            disableOnInteraction: false,
                         },
                         pagination: {
                             el: '.swiper-pagination',
