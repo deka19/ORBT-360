@@ -30,6 +30,7 @@
     <style>
         body { color: #f5f0e8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
         
+        /* Premium Glass Card */
         .glass-card { 
             background: rgba(25, 25, 25, 0.4); 
             backdrop-filter: blur(20px); 
@@ -143,16 +144,16 @@
         <div class="max-w-7xl mx-auto relative z-10">
             <h2 class="text-4xl md:text-6xl font-heading font-extrabold tracking-tight uppercase mb-16">The Ecosystem</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:auto-rows-[260px]">
                 
-                <div class="glass-card relative overflow-hidden rounded-[2rem] p-10 group min-h-[320px] md:min-h-[500px]">
-                    <div id="eco-slot-1" class="w-full h-full transition-all duration-500 transform scale-100 opacity-100">
-                        <i class="fa-solid fa-hotel absolute text-[16rem] -bottom-16 -right-16 text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12"></i>
+                <div class="glass-card lg:row-span-2 relative overflow-hidden rounded-[2rem] p-8 md:p-10 group">
+                    <div id="eco-slot-1" class="h-full w-full flex flex-col transition-all duration-500 transform scale-100 opacity-100">
+                        <i class="fa-solid fa-hotel absolute text-[16rem] -bottom-16 -right-16 text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12 pointer-events-none"></i>
                         <div class="relative z-10 h-full flex flex-col justify-between">
-                            <div class="w-16 h-16 rounded-2xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-6 backdrop-blur-md group-hover:border-accent/50 transition-colors duration-500">
+                            <div class="w-16 h-16 rounded-2xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-8 backdrop-blur-md group-hover:border-accent/50 transition-colors duration-500">
                                 <i class="fa-solid fa-hotel text-4xl text-accent"></i>
                             </div>
-                            <div class="mt-auto pt-8">
+                            <div class="mt-auto">
                                 <h3 class="text-3xl md:text-4xl font-heading font-extrabold mb-3 uppercase tracking-tight text-primary drop-shadow-md">Hospitality & Hotels</h3>
                                 <p class="text-muted font-medium leading-relaxed text-sm md:text-base">Destroy booking friction. Allow prospective guests to walk through your premium suites from their smartphone.</p>
                             </div>
@@ -160,44 +161,41 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-6">
-                    
-                    <div class="glass-card relative overflow-hidden rounded-[2rem] p-8 group flex-1">
-                        <div id="eco-slot-2" class="w-full h-full transition-all duration-500 transform scale-100 opacity-100">
-                            <i class="fa-solid fa-store absolute text-[10rem] -bottom-8 -right-8 text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12"></i>
-                            <div class="relative z-10 h-full flex flex-col justify-between">
-                                <div class="w-12 h-12 rounded-xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-6 backdrop-blur-md group-hover:border-primary/30 transition-colors duration-500">
-                                    <i class="fa-solid fa-store text-xl text-primary/70 group-hover:text-primary transition-colors"></i>
-                                </div>
-                                <div class="mt-auto">
-                                    <h4 class="text-xl md:text-2xl font-heading font-extrabold mb-2 uppercase tracking-tight text-primary">Retail Layouts</h4>
-                                    <p class="text-sm text-muted font-medium">Showcase inventory instantly to local searchers.</p>
-                                </div>
+                <div class="glass-card lg:row-span-1 relative overflow-hidden rounded-[2rem] p-8 group">
+                    <div id="eco-slot-2" class="h-full w-full flex flex-col transition-all duration-500 transform scale-100 opacity-100">
+                        <i class="fa-solid fa-store absolute text-[10rem] -bottom-8 -right-8 text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12 pointer-events-none"></i>
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-4 backdrop-blur-md group-hover:border-primary/30 transition-colors duration-500">
+                                <i class="fa-solid fa-store text-xl text-primary/70 group-hover:text-primary transition-colors"></i>
+                            </div>
+                            <div class="mt-auto">
+                                <h4 class="text-xl md:text-2xl font-heading font-extrabold mb-2 uppercase tracking-tight text-primary">Retail Layouts</h4>
+                                <p class="text-sm text-muted font-medium leading-relaxed">Showcase inventory instantly to local searchers.</p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="glass-card relative overflow-hidden rounded-[2rem] p-8 group flex-1">
-                        <div id="eco-slot-3" class="w-full h-full transition-all duration-500 transform scale-100 opacity-100">
-                            <i class="fa-solid fa-mug-hot absolute text-[10rem] -bottom-8 -right-8 text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12"></i>
-                            <div class="relative z-10 h-full flex flex-col justify-between">
-                                <div class="w-12 h-12 rounded-xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-6 backdrop-blur-md group-hover:border-primary/30 transition-colors duration-500">
-                                    <i class="fa-solid fa-mug-hot text-xl text-primary/70 group-hover:text-primary transition-colors"></i>
-                                </div>
-                                <div class="mt-auto">
-                                    <h4 class="text-xl md:text-2xl font-heading font-extrabold mb-2 uppercase tracking-tight text-primary">Café & Restro</h4>
-                                    <p class="text-sm text-muted font-medium">Ambiance is your product. Let them feel the vibe before they book.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="glass-card lg:row-span-1 relative overflow-hidden rounded-[2rem] p-8 group">
+                    <div id="eco-slot-3" class="h-full w-full flex flex-col transition-all duration-500 transform scale-100 opacity-100">
+                        <i class="fa-solid fa-mug-hot absolute text-[10rem] -bottom-8 -right-8 text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12 pointer-events-none"></i>
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-4 backdrop-blur-md group-hover:border-primary/30 transition-colors duration-500">
+                                <i class="fa-solid fa-mug-hot text-xl text-primary/70 group-hover:text-primary transition-colors"></i>
+                            </div>
+                            <div class="mt-auto">
+                                <h4 class="text-xl md:text-2xl font-heading font-extrabold mb-2 uppercase tracking-tight text-primary">Café & Restro</h4>
+                                <p class="text-sm text-muted font-medium leading-relaxed">Ambiance is your product. Let them feel the vibe.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                 <div class="glass-card relative overflow-hidden rounded-[2rem] p-8 flex flex-col justify-center items-center text-center group">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-accent/10 blur-[40px] rounded-full group-hover:bg-accent/20 transition-colors duration-700 z-0"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-accent/10 blur-[40px] rounded-full group-hover:bg-accent/20 transition-colors duration-700 z-0 pointer-events-none"></div>
                     <div class="relative z-10">
                         <h4 class="text-6xl text-accent mb-2 drop-shadow-lg transform group-hover:scale-105 transition-transform duration-500"><span class="font-numbers tracking-tight">48</span><span class="font-heading font-extrabold text-4xl">h</span></h4>
                         <p class="text-sm text-primary/70 uppercase font-bold tracking-widest group-hover:text-primary transition-colors duration-300">Go-Live SLA</p>
@@ -205,7 +203,7 @@
                 </div>
 
                 <a href="pricing.html" class="glass-card relative overflow-hidden rounded-[2rem] p-8 flex flex-col md:flex-row items-start md:items-center justify-between group cursor-pointer hover:border-accent">
-                    <div class="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
                     <div class="relative z-10 mb-6 md:mb-0">
                         <p class="text-xs text-accent uppercase tracking-widest font-bold mb-2">Take The Next Step</p>
                         <h4 class="text-3xl font-heading font-extrabold uppercase tracking-tight text-primary">View Packages</h4>
@@ -220,7 +218,7 @@
     </section>
 
     <footer class="py-12 text-center text-sm font-bold tracking-widest uppercase text-muted border-t border-primary/5">
-        © <span class="font-numbers">2026</span> ORBT°<span class="font-numbers">360</span>.
+        © <span class="font-numbers">2026</span> ORBT°<span class="font-numbers">360</span>. All systems operational.
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -237,7 +235,7 @@
         }, { passive: true });
         updateHeader();
 
-        // 2. Swiper initialization
+        // 2. Mobile Visuals Swiper Logic
         let visualsSwiper;
         function initVisualsSwiper() {
             if (window.innerWidth < 768) {
@@ -255,7 +253,7 @@
         window.addEventListener('resize', initVisualsSwiper);
         initVisualsSwiper();
 
-        // 3. Rotating Ecosystem Logic
+        // 3. Rotating Ecosystem Logic (Safe innerHTML injection into locked grid)
         const ecosystemData = [
             { icon: 'fa-hotel', title: 'Hospitality & Hotels', desc: 'Destroy booking friction. Allow prospective guests to walk through your premium suites from their smartphone.' },
             { icon: 'fa-store', title: 'Retail Layouts', desc: 'Showcase inventory instantly to local searchers. Turn online browsers into foot traffic.' },
@@ -264,18 +262,18 @@
 
         function generateCardHTML(data, isLarge) {
             const titleClass = isLarge ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl';
-            const iconSizeOuter = isLarge ? 'w-16 h-16 rounded-2xl mb-6' : 'w-12 h-12 rounded-xl mb-6';
+            const iconSizeOuter = isLarge ? 'w-16 h-16 rounded-2xl mb-8' : 'w-12 h-12 rounded-xl mb-4';
             const iconSizeInner = isLarge ? 'text-4xl text-accent' : 'text-xl text-primary/70 group-hover:text-primary transition-colors';
             const watermarkSize = isLarge ? 'text-[16rem] -bottom-16 -right-16 text-primary/5' : 'text-[10rem] -bottom-8 -right-8 text-primary/5';
             
             return `
-                <i class="fa-solid ${data.icon} absolute ${watermarkSize} group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12"></i>
+                <i class="fa-solid ${data.icon} absolute ${watermarkSize} group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12 pointer-events-none"></i>
                 <div class="relative z-10 h-full flex flex-col justify-between">
                     <div class="${iconSizeOuter} bg-dark/50 border border-primary/10 flex items-center justify-center backdrop-blur-md ${isLarge ? 'group-hover:border-accent/50' : 'group-hover:border-primary/30'} transition-colors duration-500">
                         <i class="fa-solid ${data.icon} ${iconSizeInner}"></i>
                     </div>
-                    <div class="mt-auto pt-8">
-                        <h3 class="${titleClass} font-heading font-extrabold mb-3 uppercase tracking-tight text-primary drop-shadow-md">${data.title}</h3>
+                    <div class="mt-auto">
+                        <h3 class="${titleClass} font-heading font-extrabold mb-2 uppercase tracking-tight text-primary drop-shadow-md">${data.title}</h3>
                         <p class="text-muted font-medium leading-relaxed text-sm md:text-base">${data.desc}</p>
                     </div>
                 </div>
@@ -289,29 +287,27 @@
                 document.getElementById('eco-slot-3')
             ];
 
-            // Trigger Fade Out
+            // 1. Fade out current content
             slots.forEach(slot => { slot.classList.add('opacity-0', 'scale-95'); });
 
+            // 2. Wait for fade, swap data, fade in
             setTimeout(() => {
-                // Generate and Inject new HTML
                 slots[0].innerHTML = generateCardHTML(ecosystemData[0], true);
                 slots[1].innerHTML = generateCardHTML(ecosystemData[1], false);
                 slots[2].innerHTML = generateCardHTML(ecosystemData[2], false);
 
-                // Trigger Fade In
                 slots.forEach(slot => { slot.classList.remove('opacity-0', 'scale-95'); });
                 
-                // Shift array logic to match your drawn arrows (Left -> TopRight -> BottomRight -> Left)
+                // Shift array logic to match your drawn arrows
                 ecosystemData.unshift(ecosystemData.pop());
-
-            }, 400); // Wait for fade out animation to complete
+            }, 400); // 400ms perfectly matches the CSS transition duration
         }
 
         // Initialize Rotator
         document.addEventListener("DOMContentLoaded", () => {
-            // First array shift prepares the next state without causing a load flash
+            // Pre-shift array once so first rotation starts correctly
             ecosystemData.unshift(ecosystemData.pop());
-            setInterval(rotateEcosystem, 4000); // Shifts everything every 4 seconds
+            setInterval(rotateEcosystem, 4000);
         });
     </script>
 </body>
