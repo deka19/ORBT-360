@@ -44,33 +44,14 @@
 
         /* "The Ordinary" Transition Mechanics */
         #main-header { transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+        #dynamic-logo { top: 25vh; height: 120px; filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5)); transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
         
-        #dynamic-logo { 
-            top: 50vh; 
-            transform: translateY(-50%); 
-            height: 120px; 
-            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5)); 
-            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); 
-        }
-        
-        @media (max-width: 768px) { 
-            #dynamic-logo { 
-                top: 15vh; 
-                transform: translateY(0); 
-                height: 80px; 
-            } 
-        }
+        @media (max-width: 768px) { #dynamic-logo { top: 15vh; height: 80px; } }
 
         /* Scrolled Navigation Logic */
         #nav-links, #nav-cta { opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
 
-        .scrolled #dynamic-logo { 
-            top: 1.25rem !important; 
-            transform: translateY(0) !important; 
-            height: 40px !important; 
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)) !important; 
-        }
-        
+        .scrolled #dynamic-logo { top: 1.25rem !important; height: 40px !important; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)) !important; }
         .scrolled #main-header { background-color: rgba(5, 5, 5, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom-color: rgba(245, 240, 232, 0.08); padding-top: 1.25rem; padding-bottom: 1.25rem; }
         .scrolled #nav-links, .scrolled #nav-cta { opacity: 1; visibility: visible; transform: translateY(0); }
 
@@ -89,8 +70,8 @@
 </head>
 <body class="antialiased selection:bg-accent selection:text-dark">
 
-    <div class="fixed top-0 left-0 w-full h-0 z-[60] pointer-events-none flex justify-center px-6">
-        <div class="w-full max-w-7xl relative h-0">
+    <div class="... px-6">
+    <div class="w-full max-w-7xl mx-auto relative h-0">
             <a href="index.html" id="dynamic-logo" class="absolute left-0 pointer-events-auto block">
                 <img src="Untitled-1-Photoroom.png" alt="ORBT 360 Logo" class="w-auto h-full object-contain object-left">
             </a>
