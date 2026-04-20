@@ -1,3 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBT°360 | Immersive Digital Twins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { heading: ['Montserrat', 'sans-serif'], body: ['Montserrat', 'sans-serif'], numbers: ['"Archivo Black"', 'sans-serif'], },
+                    colors: { 
+                        dark: '#050505', 
+                        accent: '#c9a84c', 
+                        primary: '#f5f0e8',
+                        muted: 'rgba(245, 240, 232, 0.6)' 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { color: #f5f0e8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+        
+        /* Premium Glass Card */
+        .glass-card { 
+            background: rgba(25, 25, 25, 0.4); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border: 1px solid rgba(245, 240, 232, 0.05); 
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .glass-card:hover { border-color: rgba(201, 168, 76, 0.3); background: rgba(30, 30, 30, 0.6); transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5); }
+        
+        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #050505; } ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+
+        /* "The Ordinary" Transition Mechanics */
+        #main-header { transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+        
+        #dynamic-logo { 
+            top: 50vh; 
+            transform: translateY(-50%); 
+            height: 120px; 
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5)); 
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); 
+        }
+        
+        @media (max-width: 768px) { 
+            #dynamic-logo { 
+                top: 15vh; 
+                transform: translateY(0); 
+                height: 80px; 
+            } 
+        }
+
+        /* Scrolled Navigation Logic */
+        #nav-links, #nav-cta { opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+
+        .scrolled #dynamic-logo { 
+            top: 1.25rem !important; 
+            transform: translateY(0) !important; 
+            height: 40px !important; 
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)) !important; 
+        }
+        
+        .scrolled #main-header { background-color: rgba(5, 5, 5, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom-color: rgba(245, 240, 232, 0.08); padding-top: 1.25rem; padding-bottom: 1.25rem; }
+        .scrolled #nav-links, .scrolled #nav-cta { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        /* Mobile Carousel Scaling */
+        @media (max-width: 767px) {
+            .swiper-slide { transition: transform 0.4s ease, opacity 0.4s ease; transform: scale(0.85); opacity: 0.5; }
+            .swiper-slide-active { transform: scale(1); opacity: 1; }
+            .swiper-pagination-bullet { background: rgba(245, 240, 232, 0.4); }
+            .swiper-pagination-bullet-active { background: #c9a84c; }
+        }
+        @media (min-width: 768px) {
+            .desktop-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 2rem !important; }
+            .swiper-wrapper { transform: none !important; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-dark">
+
+    <div class="fixed top-0 left-0 w-full h-0 z-[60] pointer-events-none flex justify-center px-6">
+        <div class="w-full max-w-7xl relative h-0">
+            <a href="index.html" id="dynamic-logo" class="absolute left-0 pointer-events-auto block">
+                <img src="Untitled-1-Photoroom.png" alt="ORBT 360 Logo" class="w-auto h-full object-contain object-left">
+            </a>
+        </div>
+    </div>
+
+    <nav id="main-header" class="fixed top-0 w-full z-50 px-6 py-8 bg-transparent border-b border-transparent">
+        <div class="grid grid-cols-2 md:grid-cols-3 items-center max-w-7xl mx-auto w-full">
+            <div class="hidden md:block pointer-events-none"></div>
+            
+            <div id="nav-links" class="hidden md:flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-primary/80 drop-shadow-md">
+                <a href="index.html" class="text-primary"> </a>
+                <a href="pricing.html" class="hover:text-primary transition-colors"> </a>
+            </div>
+            
+            <div class="flex justify-end col-span-2 md:col-span-1">
+                <a href="pricing.html" id="nav-cta" class="group relative px-6 py-2 overflow-hidden rounded-full border border-primary/20 text-sm font-bold uppercase tracking-wider bg-dark/40 backdrop-blur-md">
+                    <span class="relative z-10 text-primary group-hover:text-dark transition-colors duration-500">Book slot</span>
+                    <div class="absolute inset-0 bg-accent translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative h-screen w-full px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="1000770287.jpg" alt="Immersive Virtual Tour" class="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/30 to-dark"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto w-full h-full flex flex-col justify-center pt-32 md:pt-24">
+            <h1 class="font-heading font-black uppercase tracking-tighter leading-[0.85] drop-shadow-2xl max-w-5xl ml-auto text-right flex flex-col items-end">
+                <span class="block text-[10vw] md:text-6xl lg:text-7xl xl:text-[7.5rem] text-primary">BRING GOOGLE MAPS</span>
+                <span class="block text-[10vw] md:text-6xl lg:text-7xl xl:text-[7.5rem] mt-2 md:mt-4 text-primary">INSIDE YOUR BUSINESS</span>
+            </h1>
+        </div>
+    </header>
+
+    <section class="py-24 px-0 md:px-6 border-t border-primary/5 relative z-10 bg-dark overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-heading font-extrabold tracking-tight uppercase mb-12 px-6 md:px-0">The <span class="text-accent">Visuals.</span></h2>
+            
+            <div class="swiper visualsSwiper w-full pb-12 md:pb-0">
+                <div class="swiper-wrapper desktop-grid">
+                    <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
+                        <img src="1000770295.jpg" alt="Portfolio 1" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
+                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center text-sm hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                    <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
+                        <img src="1000770296.jpg" alt="Portfolio 2" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
+                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center text-sm hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                    <div class="swiper-slide relative aspect-[4/5] bg-primary/5 rounded-[2rem] overflow-hidden border border-primary/10 group cursor-grab active:cursor-grabbing md:cursor-auto">
+                        <img src="1000770288.jpg" alt="Portfolio 3" class="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-700">
+                        <a href="https://maps.google.com" target="_blank" class="absolute top-5 right-5 z-20 bg-dark/50 backdrop-blur-md border border-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center text-sm hover:bg-accent hover:text-dark hover:border-accent transition-all duration-300">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination md:hidden !bottom-0"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 border-t border-primary/5 bg-[#080808] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-6xl font-heading font-extrabold tracking-tight uppercase mb-16">The Ecosystem</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:auto-rows-[260px]">
+                
+                <div class="glass-card lg:row-span-2 relative overflow-hidden rounded-[2rem] p-8 md:p-10 group">
+                    <div id="eco-slot-1" class="h-full w-full flex flex-col transition-all duration-500 transform scale-100 opacity-100">
+                        <i class="fa-solid fa-hotel absolute text-[16rem] -bottom-16 -right-16 text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12 pointer-events-none"></i>
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div class="w-16 h-16 rounded-2xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-8 backdrop-blur-md group-hover:border-accent/50 transition-colors duration-500">
+                                <i class="fa-solid fa-hotel text-4xl text-accent"></i>
+                            </div>
+                            <div class="mt-auto">
+                                <h3 class="text-3xl md:text-4xl font-heading font-extrabold mb-3 uppercase tracking-tight text-primary drop-shadow-md">Hospitality & Hotels</h3>
+                                <p class="text-muted font-medium leading-relaxed text-sm md:text-base">Destroy booking friction. Allow prospective guests to walk through your premium suites from their smartphone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card lg:row-span-1 relative overflow-hidden rounded-[2rem] p-8 group">
+                    <div id="eco-slot-2" class="h-full w-full flex flex-col transition-all duration-500 transform scale-100 opacity-100">
+                        <i class="fa-solid fa-store absolute text-[10rem] -bottom-8 -right-8 text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12 pointer-events-none"></i>
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-4 backdrop-blur-md group-hover:border-primary/30 transition-colors duration-500">
+                                <i class="fa-solid fa-store text-xl text-primary/70 group-hover:text-primary transition-colors"></i>
+                            </div>
+                            <div class="mt-auto">
+                                <h4 class="text-xl md:text-2xl font-heading font-extrabold mb-2 uppercase tracking-tight text-primary">Retail Layouts</h4>
+                                <p class="text-sm text-muted font-medium leading-relaxed">Showcase inventory instantly to local searchers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card lg:row-span-1 relative overflow-hidden rounded-[2rem] p-8 group">
+                    <div id="eco-slot-3" class="h-full w-full flex flex-col transition-all duration-500 transform scale-100 opacity-100">
+                        <i class="fa-solid fa-mug-hot absolute text-[10rem] -bottom-8 -right-8 text-primary/5 group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12 pointer-events-none"></i>
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-dark/50 border border-primary/10 flex items-center justify-center mb-4 backdrop-blur-md group-hover:border-primary/30 transition-colors duration-500">
+                                <i class="fa-solid fa-mug-hot text-xl text-primary/70 group-hover:text-primary transition-colors"></i>
+                            </div>
+                            <div class="mt-auto">
+                                <h4 class="text-xl md:text-2xl font-heading font-extrabold mb-2 uppercase tracking-tight text-primary">Café & Restro</h4>
+                                <p class="text-sm text-muted font-medium leading-relaxed">Ambiance is your product. Let them feel the vibe.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="glass-card relative overflow-hidden rounded-[2rem] p-8 flex flex-col justify-center items-center text-center group">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-accent/10 blur-[40px] rounded-full group-hover:bg-accent/20 transition-colors duration-700 z-0 pointer-events-none"></div>
+                    <div class="relative z-10">
+                        <h4 class="text-6xl text-accent mb-2 drop-shadow-lg transform group-hover:scale-105 transition-transform duration-500"><span class="font-numbers tracking-tight">48</span><span class="font-heading font-extrabold text-4xl">h</span></h4>
+                        <p class="text-sm text-primary/70 uppercase font-bold tracking-widest group-hover:text-primary transition-colors duration-300">Go-Live SLA</p>
+                    </div>
+                </div>
+
+                <a href="pricing.html" class="glass-card relative overflow-hidden rounded-[2rem] p-8 flex flex-col md:flex-row items-start md:items-center justify-between group cursor-pointer hover:border-accent">
+                    <div class="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
+                    <div class="relative z-10 mb-6 md:mb-0">
+                        <p class="text-xs text-accent uppercase tracking-widest font-bold mb-2">Take The Next Step</p>
+                        <h4 class="text-3xl font-heading font-extrabold uppercase tracking-tight text-primary">View Packages</h4>
+                    </div>
+                    <div class="relative z-10 w-16 h-16 shrink-0 rounded-full border-2 border-primary/20 flex items-center justify-center text-xl group-hover:bg-accent group-hover:text-dark group-hover:border-accent transition-all duration-500 transform group-hover:translate-x-2 shadow-lg">
+                        <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-500"></i>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-sm font-bold tracking-widest uppercase text-muted border-t border-primary/5">
+        © <span class="font-numbers">2026</span> ORBT°<span class="font-numbers">360</span>.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // 1. Header Scroll Logic
+        let ticking = false;
+        function updateHeader() {
+            if (window.scrollY > 50) { document.body.classList.add('scrolled'); } 
+            else { document.body.classList.remove('scrolled'); }
+            ticking = false;
+        }
+        window.addEventListener('scroll', () => {
+            if (!ticking) { window.requestAnimationFrame(updateHeader); ticking = true; }
+        }, { passive: true });
+        updateHeader();
+
+        // 2. Mobile Visuals Swiper Logic
+        let visualsSwiper;
+        function initVisualsSwiper() {
+            if (window.innerWidth < 768) {
+                if (!visualsSwiper) {
+                    visualsSwiper = new Swiper('.visualsSwiper', {
+                        slidesPerView: 1.25, centeredSlides: true, spaceBetween: 20, loop: true,
+                        autoplay: { delay: 2500, disableOnInteraction: false, },
+                        pagination: { el: '.swiper-pagination', clickable: true, },
+                    });
+                }
+            } else {
+                if (visualsSwiper) { visualsSwiper.destroy(true, true); visualsSwiper = null; }
+            }
+        }
+        window.addEventListener('resize', initVisualsSwiper);
+        initVisualsSwiper();
+
+        // 3. Rotating Ecosystem Logic (Safe innerHTML injection into locked grid)
+        const ecosystemData = [
+            { icon: 'fa-hotel', title: 'Hospitality & Hotels', desc: 'Destroy booking friction. Allow prospective guests to walk through your premium suites from their smartphone.' },
+            { icon: 'fa-store', title: 'Retail Layouts', desc: 'Showcase inventory instantly to local searchers. Turn online browsers into foot traffic.' },
+            { icon: 'fa-mug-hot', title: 'Café & Restro', desc: 'Ambiance is your product. Let them feel the vibe and reserve their favorite table before they arrive.' }
+        ];
+
+        function generateCardHTML(data, isLarge) {
+            const titleClass = isLarge ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl';
+            const iconSizeOuter = isLarge ? 'w-16 h-16 rounded-2xl mb-8' : 'w-12 h-12 rounded-xl mb-4';
+            const iconSizeInner = isLarge ? 'text-4xl text-accent' : 'text-xl text-primary/70 group-hover:text-primary transition-colors';
+            const watermarkSize = isLarge ? 'text-[16rem] -bottom-16 -right-16 text-primary/5' : 'text-[10rem] -bottom-8 -right-8 text-primary/5';
+            
+            return `
+                <i class="fa-solid ${data.icon} absolute ${watermarkSize} group-hover:text-primary/10 transition-all duration-700 z-0 transform group-hover:-rotate-12 pointer-events-none"></i>
+                <div class="relative z-10 h-full flex flex-col justify-between">
+                    <div class="${iconSizeOuter} bg-dark/50 border border-primary/10 flex items-center justify-center backdrop-blur-md ${isLarge ? 'group-hover:border-accent/50' : 'group-hover:border-primary/30'} transition-colors duration-500">
+                        <i class="fa-solid ${data.icon} ${iconSizeInner}"></i>
+                    </div>
+                    <div class="mt-auto">
+                        <h3 class="${titleClass} font-heading font-extrabold mb-2 uppercase tracking-tight text-primary drop-shadow-md">${data.title}</h3>
+                        <p class="text-muted font-medium leading-relaxed text-sm md:text-base">${data.desc}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function rotateEcosystem() {
+            const slots = [
+                document.getElementById('eco-slot-1'),
+                document.getElementById('eco-slot-2'),
+                document.getElementById('eco-slot-3')
+            ];
+
+            // 1. Fade out current content
+            slots.forEach(slot => { slot.classList.add('opacity-0', 'scale-95'); });
+
+            // 2. Wait for fade, swap data, fade in
+            setTimeout(() => {
+                slots[0].innerHTML = generateCardHTML(ecosystemData[0], true);
+                slots[1].innerHTML = generateCardHTML(ecosystemData[1], false);
+                slots[2].innerHTML = generateCardHTML(ecosystemData[2], false);
+
+                slots.forEach(slot => { slot.classList.remove('opacity-0', 'scale-95'); });
+                
+                // Shift array logic to match your drawn arrows
+                ecosystemData.unshift(ecosystemData.pop());
+            }, 400); // 400ms perfectly matches the CSS transition duration
+        }
+
+        // Initialize Rotator
+        document.addEventListener("DOMContentLoaded", () => {
+            // Pre-shift array once so first rotation starts correctly
+            ecosystemData.unshift(ecosystemData.pop());
+            setInterval(rotateEcosystem, 4000);
+        });
+    </script>
+</body>
+
 <footer class="py-16 px-6 border-t border-primary/5 bg-dark">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
@@ -55,3 +388,5 @@
             </div>
         </div>
     </footer>
+
+</html>
