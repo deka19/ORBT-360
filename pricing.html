@@ -27,159 +27,139 @@
     </script>
     <style>
         body { color: #f5f0e8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
-        
-        .glass-card { 
-            background: rgba(25, 25, 25, 0.4); 
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px); 
-            border: 1px solid rgba(245, 240, 232, 0.05); 
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .glass-card:hover { 
-            border-color: rgba(201, 168, 76, 0.3); 
-            background: rgba(30, 30, 30, 0.6); 
-            transform: translateY(-4px); 
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-        }
-        
-        ::-webkit-scrollbar { width: 6px; } 
-        ::-webkit-scrollbar-track { background: #050505; } 
-        ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } 
-        ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+        .glass-card { background: rgba(25, 25, 25, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(245, 240, 232, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(201, 168, 76, 0.3); background: rgba(30, 30, 30, 0.6); transform: translateY(-4px); }
+        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #050505; } ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-dark flex flex-col min-h-screen">
 
     <nav class="fixed top-0 w-full z-50 px-6 py-5 bg-[#050505]/95 backdrop-blur-md border-b border-primary/5">
         <div class="grid grid-cols-2 md:grid-cols-3 items-center max-w-7xl mx-auto w-full">
-            
             <div class="flex justify-start">
                 <a href="index.html" class="block h-10">
                     <img src="Untitled-1-Photoroom.png" alt="ORBT 360 Logo" class="w-auto h-full object-contain object-left">
                 </a>
             </div>
-            
             <div class="hidden md:flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-muted">
                 <a href="index.html" class="hover:text-primary transition-colors">Home</a>
                 <a href="pricing.html" class="text-primary">Pricing</a>
             </div>
-            
             <div class="flex justify-end col-span-2 md:col-span-1">
                 <a href="book.html" class="group relative px-6 py-2 overflow-hidden rounded-full border border-primary/20 text-sm font-bold uppercase tracking-wider bg-dark/40 backdrop-blur-md">
                     <span class="relative z-10 text-primary group-hover:text-dark transition-colors duration-500">Book slot</span>
                     <div class="absolute inset-0 bg-accent translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
                 </a>
             </div>
-
         </div>
     </nav>
 
     <main class="flex-grow pt-40 pb-32 px-6">
         <div class="max-w-6xl mx-auto">
             <h1 class="text-5xl md:text-7xl font-heading font-extrabold tracking-tighter mb-24 text-center uppercase drop-shadow-xl">
-                VIRTUAL TOUR <span class="text-accent">PACKAGES</span>
+                Transparent <span class="text-accent">Investment.</span>
             </h1>
             
             <div class="space-y-4 mb-32 relative">
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[60%] bg-accent/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
                 
-                <div class="relative z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <a href="book.html?tier=Elite&price=20,000" class="relative block z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 cursor-pointer">
                     <div class="flex-1">
-                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight">Elite Tier</h3>
-                        <p class="text-muted font-medium">Up to <span class="font-numbers text-primary">8000</span> sq ft &mdash; <span class="font-numbers text-primary">25-30</span> Zones</p>
+                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight group-hover:translate-x-2 transition-transform duration-300">Elite Tier</h3>
+                        <p class="text-muted font-medium group-hover:translate-x-2 transition-transform duration-300">Up to <span class="font-numbers text-primary">8000</span> sq ft &mdash; <span class="font-numbers text-primary">25-30</span> Zones</p>
                     </div>
                     <div class="text-4xl font-numbers tracking-tighter text-primary group-hover:text-accent transition-colors">
                         <span class="font-heading font-extrabold text-2xl align-top">₹</span>20,000
                     </div>
-                </div>
+                </a>
                 
-                <div class="relative z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <a href="book.html?tier=Prestige&price=15,000" class="relative block z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 cursor-pointer">
                     <div class="flex-1">
-                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight">Prestige</h3>
-                        <p class="text-muted font-medium">Up to <span class="font-numbers text-primary">4000</span> sq ft &mdash; <span class="font-numbers text-primary">19-24</span> Zones</p>
+                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight group-hover:translate-x-2 transition-transform duration-300">Prestige</h3>
+                        <p class="text-muted font-medium group-hover:translate-x-2 transition-transform duration-300">Up to <span class="font-numbers text-primary">4000</span> sq ft &mdash; <span class="font-numbers text-primary">19-24</span> Zones</p>
                     </div>
                     <div class="text-4xl font-numbers tracking-tighter text-primary group-hover:text-accent transition-colors">
                         <span class="font-heading font-extrabold text-2xl align-top">₹</span>15,000
                     </div>
-                </div>
+                </a>
                 
-                <div class="relative z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <a href="book.html?tier=Deluxe&price=11,500" class="relative block z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 cursor-pointer">
                     <div class="flex-1">
-                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight">Deluxe</h3>
-                        <p class="text-muted font-medium">Up to <span class="font-numbers text-primary">2000</span> sq ft &mdash; <span class="font-numbers text-primary">13-18</span> Zones</p>
+                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight group-hover:translate-x-2 transition-transform duration-300">Deluxe</h3>
+                        <p class="text-muted font-medium group-hover:translate-x-2 transition-transform duration-300">Up to <span class="font-numbers text-primary">2000</span> sq ft &mdash; <span class="font-numbers text-primary">13-18</span> Zones</p>
                     </div>
                     <div class="text-4xl font-numbers tracking-tighter text-primary group-hover:text-accent transition-colors">
                         <span class="font-heading font-extrabold text-2xl align-top">₹</span>11,500
                     </div>
-                </div>
+                </a>
                 
-                <div class="relative z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <a href="book.html?tier=Superior&price=8,500" class="relative block z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 cursor-pointer">
                     <div class="flex-1">
-                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight">Superior</h3>
-                        <p class="text-muted font-medium">Up to <span class="font-numbers text-primary">1000</span> sq ft &mdash; <span class="font-numbers text-primary">10-12</span> Zones</p>
+                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight group-hover:translate-x-2 transition-transform duration-300">Superior</h3>
+                        <p class="text-muted font-medium group-hover:translate-x-2 transition-transform duration-300">Up to <span class="font-numbers text-primary">1000</span> sq ft &mdash; <span class="font-numbers text-primary">10-12</span> Zones</p>
                     </div>
                     <div class="text-4xl font-numbers tracking-tighter text-primary group-hover:text-accent transition-colors">
                         <span class="font-heading font-extrabold text-2xl align-top">₹</span>8,500
                     </div>
-                </div>
+                </a>
                 
-                <div class="relative z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <a href="book.html?tier=Standard&price=6,000" class="relative block z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 cursor-pointer">
                     <div class="flex-1">
-                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight">Standard</h3>
-                        <p class="text-muted font-medium text-sm">Up to <span class="font-numbers text-primary">750</span> sq ft &mdash; <span class="font-numbers text-primary">7-9</span> Zones</p>
+                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight group-hover:translate-x-2 transition-transform duration-300">Standard</h3>
+                        <p class="text-muted font-medium group-hover:translate-x-2 transition-transform duration-300">Up to <span class="font-numbers text-primary">750</span> sq ft &mdash; <span class="font-numbers text-primary">7-9</span> Zones</p>
                     </div>
                     <div class="text-4xl font-numbers tracking-tighter text-primary group-hover:text-accent transition-colors">
                         <span class="font-heading font-extrabold text-2xl align-top">₹</span>6,000
                     </div>
-                </div>
+                </a>
                 
-                <div class="relative z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <a href="book.html?tier=Compact&price=4,500" class="relative block z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 cursor-pointer">
                     <div class="flex-1">
-                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight">Compact</h3>
-                        <p class="text-muted font-medium text-sm">Up to <span class="font-numbers text-primary">500</span> sq ft &mdash; <span class="font-numbers text-primary">4-6</span> Zones</p>
+                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight group-hover:translate-x-2 transition-transform duration-300">Compact</h3>
+                        <p class="text-muted font-medium group-hover:translate-x-2 transition-transform duration-300">Up to <span class="font-numbers text-primary">500</span> sq ft &mdash; <span class="font-numbers text-primary">4-6</span> Zones</p>
                     </div>
                     <div class="text-4xl font-numbers tracking-tighter text-primary group-hover:text-accent transition-colors">
                         <span class="font-heading font-extrabold text-2xl align-top">₹</span>4,500
                     </div>
-                </div>
+                </a>
                 
-                <div class="relative z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <a href="book.html?tier=Essential&price=3,100" class="relative block z-10 group border-b border-primary/10 hover:border-accent/50 transition-colors duration-300 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 cursor-pointer">
                     <div class="flex-1">
-                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight">Essential</h3>
-                        <p class="text-muted font-medium text-sm">Up to <span class="font-numbers text-primary">250</span> sq ft &mdash; <span class="font-numbers text-primary">1-3</span> Zones</p>
+                        <h3 class="text-3xl font-heading font-extrabold mb-2 uppercase tracking-tight group-hover:translate-x-2 transition-transform duration-300">Essential</h3>
+                        <p class="text-muted font-medium group-hover:translate-x-2 transition-transform duration-300">Up to <span class="font-numbers text-primary">250</span> sq ft &mdash; <span class="font-numbers text-primary">1-3</span> Zones</p>
                     </div>
                     <div class="text-4xl font-numbers tracking-tighter text-primary group-hover:text-accent transition-colors">
                         <span class="font-heading font-extrabold text-2xl align-top">₹</span>3,100
                     </div>
-                </div>
+                </a>
             </div>
 
             <h2 class="text-3xl font-heading font-extrabold tracking-tight uppercase mb-10 text-center">GMB Integrations</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card p-10 rounded-[2rem] flex flex-col justify-between">
+                <a href="book.html?tier=GMB%20Setup&price=1,500" class="glass-card p-10 rounded-[2rem] flex flex-col justify-between block cursor-pointer">
                     <div>
                         <h4 class="font-extrabold font-heading text-xl mb-4 uppercase text-primary drop-shadow-md">GMB Setup</h4>
                         <p class="text-sm text-muted font-medium mb-8">Profile + Page + QR Code</p>
                     </div>
                     <p class="text-3xl font-numbers text-accent"><span class="font-heading font-extrabold text-xl align-top text-primary">₹</span>1,500</p>
-                </div>
+                </a>
                 
-                <div class="glass-card p-10 rounded-[2rem] border-primary/20 relative overflow-hidden flex flex-col justify-between">
+                <a href="book.html?tier=GMB%20+%20Essential&price=4,100" class="glass-card p-10 rounded-[2rem] border-primary/20 relative overflow-hidden flex flex-col justify-between block cursor-pointer">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-[30px] pointer-events-none"></div>
                     <div class="relative z-10">
                         <h4 class="font-extrabold font-heading text-xl mb-4 uppercase text-primary drop-shadow-md">GMB + Essential</h4>
                         <p class="text-sm text-muted font-medium mb-8">GMB Setup + <span class="font-numbers text-primary">250</span> sq ft Tour</p>
                     </div>
                     <p class="text-3xl font-numbers text-accent relative z-10"><span class="font-heading font-extrabold text-xl align-top text-primary">₹</span>4,100</p>
-                </div>
+                </a>
                 
-                <div class="glass-card p-10 rounded-[2rem] flex flex-col justify-between">
+                <a href="book.html?tier=GMB%20+%20Compact&price=5,500" class="glass-card p-10 rounded-[2rem] flex flex-col justify-between block cursor-pointer">
                     <div>
                         <h4 class="font-extrabold font-heading text-xl mb-4 uppercase text-primary drop-shadow-md">GMB + Compact</h4>
                         <p class="text-sm text-muted font-medium mb-8">GMB Setup + <span class="font-numbers text-primary">500</span> sq ft Tour</p>
                     </div>
                     <p class="text-3xl font-numbers text-accent"><span class="font-heading font-extrabold text-xl align-top text-primary">₹</span>5,500</p>
-                </div>
+                </a>
             </div>
             
             <p class="text-center text-xs font-bold text-muted uppercase tracking-widest mt-12">
