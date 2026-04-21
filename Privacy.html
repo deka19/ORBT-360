@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | ORBT°360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { heading: ['Montserrat', 'sans-serif'], body: ['Montserrat', 'sans-serif'], numbers: ['"Archivo Black"', 'sans-serif'], },
+                    colors: { 
+                        dark: '#050505', 
+                        accent: '#c9a84c', 
+                        primary: '#f5f0e8',
+                        muted: 'rgba(245, 240, 232, 0.6)' 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { color: #f5f0e8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+        
+        ::-webkit-scrollbar { width: 6px; } 
+        ::-webkit-scrollbar-track { background: #050505; } 
+        ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } 
+        ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+
+        /* Scrolled Navigation Logic */
+        #main-header { transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+        #dynamic-logo { 
+            top: 1.25rem; 
+            height: 40px; 
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); 
+        }
+        
+        .scrolled #main-header { 
+            background-color: rgba(5, 5, 5, 0.95); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px); 
+            border-bottom-color: rgba(245, 240, 232, 0.08); 
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-dark flex flex-col min-h-screen">
+
+    <div class="fixed top-0 left-0 w-full h-0 z-[60] pointer-events-none flex justify-center px-6">
+        <div class="w-full max-w-7xl relative h-0">
+            <a href="index.html" id="dynamic-logo" class="absolute left-0 pointer-events-auto block mt-6 md:mt-8">
+                <span class="font-heading font-extrabold text-2xl text-primary tracking-tighter">ORBT<span class="text-accent">°360</span></span>
+            </a>
+        </div>
+    </div>
+
+    <nav id="main-header" class="fixed top-0 w-full z-50 px-6 py-8 bg-transparent border-b border-transparent">
+        <div class="grid grid-cols-2 md:grid-cols-3 items-center max-w-7xl mx-auto w-full">
+            <div class="hidden md:block pointer-events-none"></div>
+            
+            <div id="nav-links" class="hidden md:flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-primary/80 drop-shadow-md">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <a href="pricing.html" class="hover:text-primary transition-colors">Pricing</a>
+            </div>
+            
+            <div class="flex justify-end col-span-2 md:col-span-1">
+                <a href="pricing.html" id="nav-cta" class="group relative px-6 py-2 overflow-hidden rounded-full border border-primary/20 text-sm font-bold uppercase tracking-wider bg-dark/40 backdrop-blur-md">
+                    <span class="relative z-10 text-primary group-hover:text-dark transition-colors duration-500">Book slot</span>
+                    <div class="absolute inset-0 bg-accent translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-40 pb-16 px-6 bg-dark border-b border-primary/5">
+        <div class="max-w-4xl mx-auto mt-12">
+            <h1 class="text-4xl md:text-6xl font-heading font-extrabold uppercase tracking-tight text-primary mb-4">Privacy <span class="text-accent">Policy</span></h1>
+            <p class="text-muted font-medium uppercase tracking-widest text-sm">Effective Date: April 2026</p>
+        </div>
+    </header>
+
+    <main class="flex-grow py-16 px-6 bg-dark">
+        <div class="max-w-4xl mx-auto text-muted font-medium leading-relaxed space-y-12">
+            
+            <section>
+                <h2 class="text-2xl font-heading font-extrabold uppercase text-primary mb-4 tracking-tight">1. Introduction</h2>
+                <p class="mb-4">Welcome to ORBT°360. We respect your privacy and are committed to protecting your personal data. This Privacy Policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) or use our digital twin and photography services.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-heading font-extrabold uppercase text-primary mb-4 tracking-tight">2. The Data We Collect About You</h2>
+                <p class="mb-4">Personal data, or personal information, means any information about an individual from which that person can be identified. We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+                <ul class="list-disc pl-6 space-y-2 mt-4 text-primary/80">
+                    <li><strong class="text-primary">Identity Data:</strong> Includes first name, last name, username or similar identifier, and title.</li>
+                    <li><strong class="text-primary">Contact Data:</strong> Includes billing address, service location address, email address, and telephone numbers.</li>
+                    <li><strong class="text-primary">Financial Data:</strong> Includes bank account and payment card details (processed securely via our third-party payment gateways).</li>
+                    <li><strong class="text-primary">Transaction Data:</strong> Includes details about payments to and from you and other details of services you have purchased from us.</li>
+                    <li><strong class="text-primary">Technical Data:</strong> Includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location, and other technology on the devices you use to access this website.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-heading font-extrabold uppercase text-primary mb-4 tracking-tight">3. How We Use Your Data</h2>
+                <p class="mb-4">We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+                <ul class="list-disc pl-6 space-y-2 mt-4 text-primary/80">
+                    <li>Where we need to perform the contract we are about to enter into or have entered into with you (e.g., executing a 360° photoshoot at your premises).</li>
+                    <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+                    <li>Where we need to comply with a legal obligation.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-heading font-extrabold uppercase text-primary mb-4 tracking-tight">4. Digital Twin & Visual Data Processing</h2>
+                <p class="mb-4">Given the nature of our business, creating immersive digital twins involves capturing detailed visual data of your commercial or personal spaces. By booking our services, you consent to the capture and processing of this visual data. It is the client's responsibility to ensure that any sensitive materials or individuals not consenting to be photographed are removed from the premises prior to the scheduled shoot.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-heading font-extrabold uppercase text-primary mb-4 tracking-tight">5. Data Security</h2>
+                <p class="mb-4">We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way, altered, or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors, and other third parties who have a business need to know. They will only process your personal data on our instructions and they are subject to a duty of confidentiality.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-heading font-extrabold uppercase text-primary mb-4 tracking-tight">6. Governing Law & Jurisdiction</h2>
+                <p class="mb-4">This Privacy Policy and any dispute or claim arising out of or in connection with it shall be governed by and construed in accordance with the laws of India. Any legal actions or proceedings related to this policy shall be brought exclusively in the competent courts of Guwahati, Assam.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-heading font-extrabold uppercase text-primary mb-4 tracking-tight">7. Contact Us</h2>
+                <p class="mb-4">If you have any questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+                <p class="text-primary font-bold">Email: legal@orbt360.com</p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="py-16 px-6 border-t border-primary/5 bg-dark mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-primary font-heading font-extrabold uppercase tracking-widest text-sm mb-2">Learn More</h5>
+                    <div class="flex flex-col gap-3 text-muted text-sm font-medium">
+                        <a href="privacy.html" class="hover:text-accent transition-colors text-accent">Privacy</a>
+                        <a href="#" class="hover:text-accent transition-colors">Security</a>
+                        <a href="#" class="hover:text-accent transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-accent transition-colors">Help & Support</a>
+                        <a href="#" class="hover:text-accent transition-colors">Report a Fraud</a>
+                        <a href="#" class="hover:text-accent transition-colors">Blog</a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-primary font-heading font-extrabold uppercase tracking-widest text-sm mb-2">Social Links</h5>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-primary/5 mb-8">
+
+            <div class="text-[11px] md:text-xs text-muted leading-relaxed font-medium uppercase tracking-wider">
+                <p class="mb-4">By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners.</p>
+                <p>2026 © ORBT°360. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header Scroll Logic
+        let ticking = false;
+        function updateHeader() {
+            if (window.scrollY > 10) { document.body.classList.add('scrolled'); } 
+            else { document.body.classList.remove('scrolled'); }
+            ticking = false;
+        }
+        window.addEventListener('scroll', () => {
+            if (!ticking) { window.requestAnimationFrame(updateHeader); ticking = true; }
+        }, { passive: true });
+        updateHeader();
+    </script>
+</body>
+</html>
