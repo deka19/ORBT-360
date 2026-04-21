@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support | ORBT°360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { heading: ['Montserrat', 'sans-serif'], body: ['Montserrat', 'sans-serif'], numbers: ['"Archivo Black"', 'sans-serif'], },
+                    colors: { 
+                        dark: '#050505', 
+                        accent: '#c9a84c', 
+                        primary: '#f5f0e8',
+                        muted: 'rgba(245, 240, 232, 0.6)' 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { color: #f5f0e8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 6px; } 
+        ::-webkit-scrollbar-track { background: #050505; } 
+        ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } 
+        ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .glass-card { 
+            background: rgba(25, 25, 25, 0.4); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border: 1px solid rgba(245, 240, 232, 0.05); 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .glass-card:hover { 
+            border-color: rgba(201, 168, 76, 0.3); 
+            background: rgba(30, 30, 30, 0.6); 
+            transform: translateY(-4px); 
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-dark flex flex-col min-h-screen">
+
+    <nav class="fixed top-0 w-full z-50 px-6 py-5 bg-[#050505]/95 backdrop-blur-md border-b border-primary/5 transition-all duration-300" id="main-header">
+        <div class="flex items-center max-w-7xl mx-auto w-full">
+            <a href="index.html" class="block h-10">
+                <img src="Untitled-1-Photoroom.png" alt="ORBT 360 Logo" class="w-auto h-full object-contain object-left">
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-40 pb-32 px-6">
+        <div class="max-w-5xl mx-auto fade-in-up">
+            
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-heading font-extrabold tracking-tighter mb-6 uppercase drop-shadow-xl">
+                    Help & <span class="text-accent">Support.</span>
+                </h1>
+                <p class="text-sm font-bold tracking-widest uppercase text-muted">
+                    Available Monday to Sunday, <span class="font-numbers text-primary">9:00</span> AM to <span class="font-numbers text-primary">8:00</span> PM IST
+                </p>
+            </div>
+
+            <h2 class="text-2xl font-heading font-extrabold uppercase tracking-tight text-primary mb-6">Contact Us Directly</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
+                
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+                    <div class="w-12 h-12 bg-primary/10 text-accent rounded-full flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-primary uppercase tracking-widest text-xs mb-2">Phone & WhatsApp</h3>
+                    <p class="text-primary font-numbers tracking-widest mb-2">+<span class="font-numbers">91 93652 94816</span></p>
+                    <p class="text-xs text-muted font-medium">Call or WhatsApp 9AM to 8PM, 7 days</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+                    <div class="w-12 h-12 bg-primary/10 text-accent rounded-full flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-primary uppercase tracking-widest text-xs mb-2">Email</h3>
+                    <a href="mailto:orbit360@gmail.com" class="text-primary font-medium hover:text-accent transition-colors mb-2 text-sm">orbit360@gmail.com</a>
+                    <p class="text-xs text-muted font-medium">Response within 4 hours on working days</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+                    <div class="w-12 h-12 bg-primary/10 text-accent rounded-full flex items-center justify-center text-xl mb-4">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-primary uppercase tracking-widest text-xs mb-2">Instagram</h3>
+                    <p class="text-primary font-medium mb-2 text-sm">@orbt.360</p>
+                    <p class="text-xs text-muted font-medium">DM for quick queries and bookings</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+                    <div class="w-12 h-12 bg-primary/10 text-accent rounded-full flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-primary uppercase tracking-widest text-xs mb-2">Office</h3>
+                    <p class="text-primary font-medium text-sm mb-1">Kahilipara, Guwahati</p>
+                    <p class="text-xs text-muted font-medium">Kamrup Metro, Assam 781019</p>
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-heading font-extrabold uppercase tracking-tight text-primary mb-8 text-center">Frequently Asked Questions</h2>
+            
+            <div class="space-y-3 mb-24" id="faq-container">
+                
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">What exactly is a Google 360° Virtual Tour?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            A Google 360° Virtual Tour is an immersive, interactive walkthrough of your property that appears directly on your Google Maps listing. When anyone searches for your business on Google, they can click into your listing and virtually walk through every room or zone as if they were physically there. It uses 360 degree photography stitched together seamlessly and hosted permanently by Google.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">How long does it take to go live on Google?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            Our standard delivery is within 48 hours of the shoot. Once we upload your tour, Google processes and publishes it. This typically takes 24 to 48 hours. Express delivery (live within 24 hours) is available for an additional ₹500. We will send you the Google Maps link as soon as your tour is live.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">Is this a one time payment or a subscription?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            Completely one time. You pay once and your virtual tour stays on Google permanently. There are no monthly fees, no annual renewals, and no hidden charges. Once it is live, it is live forever or until you request removal from Google yourself.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">What is a "zone" and how do I count my zones?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            One zone = one camera placement = one 360° photograph. Think of it as any distinct area of your property: a bedroom, living room, kitchen, reception, cafe seating area, or rooftop. Each counts as one zone. A large open showroom may need only 1 to 2 zones. A 5 room homestay would typically need 5 to 7 zones. When you book, we assess your property and confirm the exact zone count before the shoot.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">Do I need a Google Business Profile to get a virtual tour?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            Yes, a Google Business Profile (formerly Google My Business) is required to host your virtual tour. If you don't have one, we can create it for you as part of our GMB Setup service (₹1,500). If you already have one, we will link your tour directly to your existing profile.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">What do I need to prepare for the shoot?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            Ensure your property is clean, well-lit (switch on all lights), and clutter-free. All areas to be photographed should be exactly as you want customers to see them. Have an authorised person present on-site during the shoot. The shoot itself typically takes 1 to 3 hours depending on property size.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">Can I remove or update my virtual tour later?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            Yes. Only you (as the Google Business Profile owner) can request removal or updates. To update an existing tour (e.g., after renovation), a new shoot would be required at a discounted rate for existing clients. Contact us to discuss update options.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">What is the QR Review Stand and how does it work?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            The QR Review Stand is a physical display stand you place at your counter or reception. When a customer scans the QR code with their phone, they are taken directly to your Google review page, making it effortless for them to leave a review. More reviews = higher Google ranking = more organic customers. It is included free with our Premium/Compact packages and above.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">What happens if I am not satisfied with the tour?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            We stand behind our work. If you are not satisfied with the quality of your virtual tour, contact us within 7 days of delivery. We will re-shoot specific zones at no charge if the quality issue is on our end. We are committed to delivering a tour you are proud to show on Google Maps.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">Do you serve areas outside Guwahati?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            Currently, we primarily serve Guwahati and nearby areas in Assam. For locations outside Guwahati, please contact us. We evaluate outstation projects on a case by case basis and may apply a travel surcharge. Contact us at orbit360@gmail.com to discuss.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-dark/50 border border-primary/10 rounded-2xl overflow-hidden transition-colors duration-300">
+                    <button class="faq-button w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none group hover:bg-white/[0.02]">
+                        <h3 class="text-primary font-heading font-bold tracking-wide pr-4">How do I book a shoot?</h3>
+                        <i class="fa-solid fa-chevron-down text-accent transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="text-muted leading-relaxed font-medium pb-6 text-sm">
+                            Booking is simple: (1) WhatsApp or call us at +91 93652 94816 or DM @orbt.360 on Instagram. (2) Share your property details and preferred date. (3) We confirm the package and price. (4) Pay 50% advance to secure your booking. (5) We shoot, process, and deliver your tour live on Google within 48 hours.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-primary/5 border border-primary/20 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-[40px] pointer-events-none"></div>
+                <div class="relative z-10 max-w-2xl">
+                    <h2 class="text-2xl font-heading font-extrabold uppercase tracking-tight text-primary mb-2">Raise a Complaint</h2>
+                    <p class="text-muted font-medium text-sm leading-relaxed mb-4">
+                        If you have a complaint about our service, we want to hear it directly. All complaints are acknowledged within 24 hours and resolved within 5 working days.
+                    </p>
+                    <p class="text-xs text-primary font-bold uppercase tracking-widest">
+                        Email: <a href="mailto:orbit360@gmail.com" class="text-accent hover:underline ml-1">orbit360@gmail.com</a>
+                    </p>
+                </div>
+                <div class="relative z-10 w-full md:w-auto">
+                    <div class="bg-dark/80 backdrop-blur-md border border-primary/10 rounded-xl p-4 text-center">
+                        <p class="text-xs text-muted font-bold uppercase tracking-widest mb-1">Subject Line Format</p>
+                        <p class="text-primary font-medium text-sm">Complaint [Your Name]</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-16 px-6 border-t border-primary/5 bg-dark mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-primary font-heading font-extrabold uppercase tracking-widest text-sm mb-2">Learn More</h5>
+                    <div class="flex flex-col gap-3 text-muted text-sm font-medium">
+                        <a href="privacy.html" class="hover:text-accent transition-colors">Privacy</a>
+                        <a href="security.html" class="hover:text-accent transition-colors">Security</a>
+                        <a href="terms-of-service.html" class="hover:text-accent transition-colors">Terms of Service</a>
+                        <a href="help-and-support.html" class="hover:text-accent transition-colors">Help & Support</a>
+                        <a href="report-a-fraud.html" class="hover:text-accent transition-colors">Report a Fraud</a>
+                        <a href="blog.html" class="hover:text-accent transition-colors">Blog</a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h5 class="text-primary font-heading font-extrabold uppercase tracking-widest text-sm mb-2">Social Links</h5>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-primary/5 mb-8">
+            <div class="text-[11px] md:text-xs text-muted leading-relaxed font-medium uppercase tracking-wider">
+                <p class="mb-4">By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners.</p>
+                <p><span class="font-numbers">2026</span> © ORBT°<span class="font-numbers">360</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header Scroll Logic
+        let ticking = false;
+        function updateHeader() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 20) {
+                header.classList.add('border-primary/10', 'shadow-lg');
+            } else {
+                header.classList.remove('border-primary/10', 'shadow-lg');
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }, { passive: true });
+        updateHeader();
+
+        // FAQ Accordion Logic (Open only one at a time)
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqButtons = document.querySelectorAll('.faq-button');
+            
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const currentAnswer = button.nextElementSibling;
+                    const currentIcon = button.querySelector('i');
+                    const isActive = button.classList.contains('active');
+
+                    // Close all FAQs first
+                    faqButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.querySelector('i').classList.remove('rotate-180');
+                        btn.nextElementSibling.style.maxHeight = null;
+                    });
+
+                    // If the clicked one wasn't active, open it
+                    if (!isActive) {
+                        button.classList.add('active');
+                        currentIcon.classList.add('rotate-180');
+                        currentAnswer.style.maxHeight = currentAnswer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
