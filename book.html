@@ -156,15 +156,26 @@
                         <div>
                             <input type="tel" name="Contact_Number" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="+91 Mobile Number" required>
                         </div>
-                        <div>
-                            <input type="text" name="UPI_Reference_ID" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="12-digit UPI Reference No." required>
-                        </div>
 
-                        <div class="relative group mt-2">
-                            <input type="file" name="Payment_Screenshot" id="screenshot-upload" accept="image/*" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
-                            <div class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium flex items-center justify-between border-dashed border-2 group-hover:border-accent transition-colors">
-                                <span id="file-name-display" class="text-muted truncate mr-4">Upload Payment Screenshot...</span>
-                                <i class="fa-solid fa-cloud-arrow-up text-accent text-lg"></i>
+                        <div class="pt-2">
+                            <label class="text-[10px] text-muted font-bold uppercase tracking-widest mb-2 block text-center">Payment Verification</label>
+                            
+                            <div>
+                                <input type="text" name="UPI_Reference_ID" id="upi-id-input" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="12-digit UPI Reference No.">
+                            </div>
+
+                            <div class="flex items-center gap-4 my-2">
+                                <hr class="flex-grow border-primary/10">
+                                <span class="text-[10px] font-bold text-muted uppercase tracking-widest">OR</span>
+                                <hr class="flex-grow border-primary/10">
+                            </div>
+
+                            <div class="relative group">
+                                <input type="file" name="Payment_Screenshot" id="screenshot-upload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
+                                <div class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium flex items-center justify-between border-dashed border-2 group-hover:border-accent transition-colors">
+                                    <span id="file-name-display" class="text-muted truncate mr-4">Upload Payment Screenshot...</span>
+                                    <i class="fa-solid fa-cloud-arrow-up text-accent text-lg"></i>
+                                </div>
                             </div>
                         </div>
 
@@ -246,7 +257,7 @@
             }
         });
 
-        // Handle AJAX Background Submission with Image Upload
+        // Handle AJAX Background Submission with Image Upload & Validation
         const bookingForm = document.getElementById("booking-form");
         const submitBtn = document.getElementById("submit-booking");
         const successMsg = document.getElementById("booking-success");
@@ -254,6 +265,16 @@
 
         bookingForm.addEventListener("submit", async function(event) {
             event.preventDefault();
+
+            // Custom Validation: Require either Text ID or Screenshot
+            const upiInput = document.getElementById('upi-id-input').value.trim();
+            const fileInput = document.getElementById('screenshot-upload').files.length;
+
+            if (!upiInput && fileInput === 0) {
+                errorMsg.innerText = "Please provide either a UPI Reference Number or a Payment Screenshot.";
+                errorMsg.classList.remove('hidden');
+                return; // Stop the submission
+            }
 
             // UI feedback while sending
             const originalText = submitBtn.innerHTML;
