@@ -144,14 +144,11 @@
                         <p class="text-muted font-medium text-sm leading-relaxed">Your details have been securely logged. Our production team will contact you shortly to schedule your shoot.</p>
                     </div>
 
-                    <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" class="space-y-4 text-left relative z-10 border-t border-primary/10 pt-6">
-                        
-                        <input type="hidden" name="access_key" value="4d986d9b-5c0c-4a3a-9e15-26ca81f9df8f">
+                    <form id="booking-form" action="https://formspree.io/f/xnjlorjk" method="POST" class="space-y-4 text-left relative z-10 border-t border-primary/10 pt-6">
                         
                         <input type="hidden" name="Selected_Package" id="form-tier" value="Custom Booking">
                         <input type="hidden" name="Price_Quoted" id="form-price" value="TBD">
-                        <input type="hidden" name="subject" value="New ORBT360 Booking Payment!">
-                        <input type="hidden" name="from_name" value="ORBT360 Booking System">
+                        <input type="hidden" name="_subject" value="New ORBT360 Booking Payment!">
 
                         <div>
                             <input type="text" name="Client_Name" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium" placeholder="Business Name / Your Name" required>
@@ -164,22 +161,9 @@
                             <label class="text-[10px] text-muted font-bold uppercase tracking-widest mb-2 block text-center">Payment Verification</label>
                             
                             <div>
-                                <input type="text" name="UPI_Reference_ID" id="upi-id-input" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="12-digit UPI Reference No.">
+                                <input type="text" name="UPI_Reference_ID" id="upi-id-input" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest border-accent/30 focus:border-accent text-center" placeholder="12-digit UPI Reference No. (UTR)" required pattern="[0-9]{12}" title="Please enter the exact 12-digit UPI reference number">
                             </div>
-
-                            <div class="flex items-center gap-4 my-2">
-                                <hr class="flex-grow border-primary/10">
-                                <span class="text-[10px] font-bold text-muted uppercase tracking-widest">OR</span>
-                                <hr class="flex-grow border-primary/10">
-                            </div>
-
-                            <div class="relative group">
-                                <input type="file" name="attachment" id="screenshot-upload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
-                                <div class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium flex items-center justify-between border-dashed border-2 group-hover:border-accent transition-colors">
-                                    <span id="file-name-display" class="text-muted truncate mr-4">Upload Payment Screenshot...</span>
-                                    <i class="fa-solid fa-cloud-arrow-up text-accent text-lg"></i>
-                                </div>
-                            </div>
+                            <p class="text-[10px] text-muted mt-2 text-center leading-relaxed">Find this 12-digit UTR number on your successful payment screen (GPay, PhonePe, Paytm).</p>
                         </div>
 
                         <button id="submit-booking" type="submit" class="block w-full mt-4 py-4 bg-primary text-dark rounded-full font-extrabold font-heading uppercase tracking-widest text-sm hover:bg-accent transition-all duration-300">
@@ -221,21 +205,6 @@
             }).catch(err => console.error('Failed to copy: ', err));
         }
 
-        // Image Upload UI update
-        document.getElementById('screenshot-upload').addEventListener('change', function(e) {
-            const fileName = e.target.files[0]?.name || 'Upload Payment Screenshot...';
-            const displaySpan = document.getElementById('file-name-display');
-            displaySpan.innerText = fileName;
-            
-            if(e.target.files[0]) {
-                displaySpan.classList.remove('text-muted');
-                displaySpan.classList.add('text-primary');
-            } else {
-                displaySpan.classList.add('text-muted');
-                displaySpan.classList.remove('text-primary');
-            }
-        });
-
         // Pull dynamic data from Pricing page URL
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
@@ -255,7 +224,7 @@
             }
         });
 
-        // Handle AJAX Background Submission with Web3Forms
+        // Handle AJAX Background Submission with Formspree
         const bookingForm = document.getElementById("booking-form");
         const submitBtn = document.getElementById("submit-booking");
         const successMsg = document.getElementById("booking-success");
@@ -263,16 +232,6 @@
 
         bookingForm.addEventListener("submit", async function(event) {
             event.preventDefault();
-
-            // Custom Validation: Require either Text ID or Screenshot
-            const upiInput = document.getElementById('upi-id-input').value.trim();
-            const fileInput = document.getElementById('screenshot-upload').files.length;
-
-            if (!upiInput && fileInput === 0) {
-                errorMsg.innerText = "Please provide either a UPI Reference Number or a Payment Screenshot.";
-                errorMsg.classList.remove('hidden');
-                return;
-            }
 
             // UI feedback while sending
             const originalText = submitBtn.innerHTML;
@@ -288,13 +247,17 @@
                     headers: { 'Accept': 'application/json' }
                 });
                 
-                const data = await response.json();
-
-                if (response.ok && data.success) {
+                if (response.ok) {
+                    // Success! Hide form, show confirmation
                     bookingForm.style.display = 'none';
                     successMsg.classList.remove('hidden');
                 } else {
-                    errorMsg.innerText = data.message || "Oops! There was a problem submitting your booking.";
+                    const data = await response.json();
+                    if (Object.hasOwn(data, 'errors')) {
+                        errorMsg.innerText = data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        errorMsg.innerText = "Oops! There was a problem submitting your booking.";
+                    }
                     errorMsg.classList.remove('hidden');
                     resetButton();
                 }
