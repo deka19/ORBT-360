@@ -144,11 +144,14 @@
                         <p class="text-muted font-medium text-sm leading-relaxed">Your details have been securely logged. Our production team will contact you shortly to schedule your shoot.</p>
                     </div>
 
-                    <form id="booking-form" action="https://formspree.io/f/xzdykozy" method="POST" enctype="multipart/form-data" class="space-y-4 text-left relative z-10 border-t border-primary/10 pt-6">
+                    <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" class="space-y-4 text-left relative z-10 border-t border-primary/10 pt-6">
+                        
+                        <input type="hidden" name="access_key" value="4d986d9b-5c0c-4a3a-9e15-26ca81f9df8f">
                         
                         <input type="hidden" name="Selected_Package" id="form-tier" value="Custom Booking">
                         <input type="hidden" name="Price_Quoted" id="form-price" value="TBD">
-                        <input type="hidden" name="_subject" value="New ORBT360 Booking Payment!">
+                        <input type="hidden" name="subject" value="New ORBT360 Booking Payment!">
+                        <input type="hidden" name="from_name" value="ORBT360 Booking System">
 
                         <div>
                             <input type="text" name="Client_Name" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium" placeholder="Business Name / Your Name" required>
@@ -171,7 +174,7 @@
                             </div>
 
                             <div class="relative group">
-                                <input type="file" name="Payment_Screenshot" id="screenshot-upload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
+                                <input type="file" name="attachment" id="screenshot-upload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
                                 <div class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium flex items-center justify-between border-dashed border-2 group-hover:border-accent transition-colors">
                                     <span id="file-name-display" class="text-muted truncate mr-4">Upload Payment Screenshot...</span>
                                     <i class="fa-solid fa-cloud-arrow-up text-accent text-lg"></i>
@@ -213,13 +216,9 @@
             const upiId = "orbt9365@hdfc.bank";
             navigator.clipboard.writeText(upiId).then(() => {
                 const icon = document.getElementById('copy-icon');
-                icon.className = "fa-solid fa-check text-green-500 text-lg"; // Show checkmark
-                setTimeout(() => {
-                    icon.className = "fa-regular fa-copy text-lg"; // Revert back
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
+                icon.className = "fa-solid fa-check text-green-500 text-lg";
+                setTimeout(() => { icon.className = "fa-regular fa-copy text-lg"; }, 2000);
+            }).catch(err => console.error('Failed to copy: ', err));
         }
 
         // Image Upload UI update
@@ -228,7 +227,6 @@
             const displaySpan = document.getElementById('file-name-display');
             displaySpan.innerText = fileName;
             
-            // Highlight text when file is selected
             if(e.target.files[0]) {
                 displaySpan.classList.remove('text-muted');
                 displaySpan.classList.add('text-primary');
@@ -257,7 +255,7 @@
             }
         });
 
-        // Handle AJAX Background Submission with Image Upload & Validation
+        // Handle AJAX Background Submission with Web3Forms
         const bookingForm = document.getElementById("booking-form");
         const submitBtn = document.getElementById("submit-booking");
         const successMsg = document.getElementById("booking-success");
@@ -273,7 +271,7 @@
             if (!upiInput && fileInput === 0) {
                 errorMsg.innerText = "Please provide either a UPI Reference Number or a Payment Screenshot.";
                 errorMsg.classList.remove('hidden');
-                return; // Stop the submission
+                return;
             }
 
             // UI feedback while sending
@@ -284,24 +282,24 @@
             errorMsg.classList.add('hidden');
 
             try {
-                // FormData automatically handles the multipart/form-data encoding for the image
                 const response = await fetch(bookingForm.action, {
                     method: bookingForm.method,
                     body: new FormData(bookingForm),
                     headers: { 'Accept': 'application/json' }
                 });
+                
+                const data = await response.json();
 
-                if (response.ok) {
-                    // Success! Hide form, show confirmation
+                if (response.ok && data.success) {
                     bookingForm.style.display = 'none';
                     successMsg.classList.remove('hidden');
                 } else {
-                    errorMsg.innerText = "Oops! There was a problem submitting your booking.";
+                    errorMsg.innerText = data.message || "Oops! There was a problem submitting your booking.";
                     errorMsg.classList.remove('hidden');
                     resetButton();
                 }
             } catch (error) {
-                errorMsg.innerText = "Network error. Please try again.";
+                errorMsg.innerText = "Network error. Please check your internet connection.";
                 errorMsg.classList.remove('hidden');
                 resetButton();
             }
