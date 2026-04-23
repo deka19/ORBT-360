@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;800;900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -27,32 +27,63 @@
     </script>
     <style>
         body { color: #f5f0e8; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
-        .glass-card { background: rgba(25, 25, 25, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(245, 240, 232, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #050505; } ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+        ::-webkit-scrollbar { width: 6px; } 
+        ::-webkit-scrollbar-track { background: #050505; } 
+        ::-webkit-scrollbar-thumb { background: rgba(245, 240, 232, 0.2); border-radius: 10px; } 
+        ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .glass-card { 
+            background: rgba(25, 25, 25, 0.4); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border: 1px solid rgba(245, 240, 232, 0.05); 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        
+        /* Premium Input Styling */
+        .premium-input {
+            background: rgba(5, 5, 5, 0.5);
+            border: 1px solid rgba(245, 240, 232, 0.1);
+            color: #f5f0e8;
+            transition: all 0.3s ease;
+        }
+        .premium-input:focus-within, .premium-input:focus {
+            outline: none;
+            border-color: #c9a84c;
+            background: rgba(25, 25, 25, 0.8);
+            box-shadow: 0 0 15px rgba(201, 168, 76, 0.1);
+        }
+        .premium-input::placeholder {
+            color: rgba(245, 240, 232, 0.3);
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-dark flex flex-col min-h-screen">
 
-    <nav class="fixed top-0 w-full z-50 px-6 py-5 bg-[#050505]/95 backdrop-blur-md border-b border-primary/5">
-        <div class="grid grid-cols-2 md:grid-cols-3 items-center max-w-7xl mx-auto w-full">
-            <div class="flex justify-start">
-                <a href="index.html" class="block h-10">
-                    <img src="Untitled-1-Photoroom.png" alt="ORBT 360 Logo" class="w-auto h-full object-contain object-left">
-                </a>
-            </div>
-            <div class="hidden md:flex justify-center gap-8 text-sm font-bold uppercase tracking-widest text-muted">
-                <a href="index.html" class="hover:text-primary transition-colors"> </a>
-                <a href="pricing.html" class="hover:text-primary transition-colors"> </a>
-            </div>
-            
+    <nav class="fixed top-0 w-full z-50 px-6 py-5 bg-[#050505]/95 backdrop-blur-md border-b border-primary/5 transition-all duration-300" id="main-header">
+        <div class="flex items-center max-w-7xl mx-auto w-full">
+            <a href="index.html" class="block h-10">
+                <img src="Untitled-1-Photoroom.png" alt="ORBT 360 Logo" class="w-auto h-full object-contain object-left">
+            </a>
         </div>
     </nav>
 
     <main class="flex-grow flex items-center justify-center pt-32 pb-20 px-6">
-        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center fade-in-up">
             
             <div>
-                <h1 class="text-5xl md:text-7xl font-heading font-extrabold uppercase tracking-tighter mb-8">Let's <br><span class="text-accent">Shoot.</span></h1>
+                <h1 class="text-5xl md:text-7xl font-heading font-extrabold uppercase tracking-tighter mb-8 drop-shadow-xl">
+                    Let's <br><span class="text-accent">Shoot.</span>
+                </h1>
                 <ul class="space-y-8 max-w-md">
                     <li class="flex gap-5">
                         <span class="text-accent mt-1 text-xl"><i class="fa-solid fa-bolt"></i></span>
@@ -79,8 +110,8 @@
             </div>
 
             <div class="flex justify-center lg:justify-end">
-                <div class="w-full max-w-md glass-card p-10 rounded-[2rem] text-center relative border-primary/10">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-[40px]"></div>
+                <div class="w-full max-w-md glass-card p-8 md:p-10 rounded-[2rem] text-center relative border-primary/10 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-[40px] pointer-events-none"></div>
                     
                     <h3 class="text-xl font-heading font-extrabold mb-6 uppercase tracking-widest text-primary">Scan & Pay</h3>
                     
@@ -89,87 +120,175 @@
                         <p class="text-4xl font-numbers text-accent"><span class="font-heading font-extrabold text-2xl align-top text-primary">₹</span><span id="dynamic-price"></span></p>
                     </div>
                     
-                    <div class="aspect-square bg-primary rounded-3xl mb-8 p-4 flex flex-col items-center justify-center shadow-2xl relative z-10">
+                    <div class="aspect-square bg-primary rounded-3xl mb-6 p-4 flex flex-col items-center justify-center shadow-2xl relative z-10">
                         <div class="w-full h-full border-2 border-dashed border-gray-400 rounded-2xl flex items-center justify-center">
                             <span class="text-gray-500 text-xs font-extrabold font-heading uppercase tracking-widest text-center">Place QR Code <br> Here</span>
                         </div>
                     </div>
 
-                    <div class="bg-black/50 border border-primary/5 py-4 rounded-xl mb-6 relative z-10">
+                    <div class="bg-black/50 border border-primary/5 py-4 rounded-xl mb-8 relative z-10 group">
                         <p class="text-xs text-muted font-bold uppercase tracking-widest mb-1">UPI Verification</p>
-                        <p class="text-xl font-bold font-heading text-primary tracking-wider">orbt<span class="font-numbers tracking-tight">9365</span>@hdfc.bank</p>
+                        <div class="flex items-center justify-center gap-3">
+                            <p class="text-xl font-bold font-heading text-primary tracking-wider">orbt<span class="font-numbers tracking-tight">9365</span>@hdfc.bank</p>
+                            <button type="button" onclick="copyUPI()" class="text-muted hover:text-accent transition-colors focus:outline-none flex items-center" title="Copy UPI ID">
+                                <i id="copy-icon" class="fa-regular fa-copy text-lg"></i>
+                            </button>
+                        </div>
                     </div>
 
-                    <a href="#" class="block w-full py-4 bg-primary text-dark rounded-full font-extrabold font-heading uppercase tracking-widest text-sm hover:bg-accent transition-colors duration-300 relative z-10">
-                        Confirm via WhatsApp
-                    </a>
+                    <div id="booking-success" class="hidden py-6 border-t border-primary/10 fade-in-up relative z-10">
+                        <div class="w-16 h-16 bg-accent/10 border border-accent/30 text-accent rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h4 class="text-xl font-heading font-extrabold text-primary mb-2 uppercase tracking-tight">Payment Received</h4>
+                        <p class="text-muted font-medium text-sm leading-relaxed">Your details have been securely logged. Our production team will contact you shortly to schedule your shoot.</p>
+                    </div>
+
+                    <form id="booking-form" action="https://formspree.io/f/xzdykozy" method="POST" enctype="multipart/form-data" class="space-y-4 text-left relative z-10 border-t border-primary/10 pt-6">
+                        
+                        <input type="hidden" name="Selected_Package" id="form-tier" value="Custom Booking">
+                        <input type="hidden" name="Price_Quoted" id="form-price" value="TBD">
+                        <input type="hidden" name="_subject" value="New ORBT360 Booking Payment!">
+
+                        <div>
+                            <input type="text" name="Client_Name" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium" placeholder="Business Name / Your Name" required>
+                        </div>
+                        <div>
+                            <input type="tel" name="Contact_Number" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="+91 Mobile Number" required>
+                        </div>
+                        <div>
+                            <input type="text" name="UPI_Reference_ID" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="12-digit UPI Reference No." required>
+                        </div>
+
+                        <div class="relative group mt-2">
+                            <input type="file" name="Payment_Screenshot" id="screenshot-upload" accept="image/*" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
+                            <div class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium flex items-center justify-between border-dashed border-2 group-hover:border-accent transition-colors">
+                                <span id="file-name-display" class="text-muted truncate mr-4">Upload Payment Screenshot...</span>
+                                <i class="fa-solid fa-cloud-arrow-up text-accent text-lg"></i>
+                            </div>
+                        </div>
+
+                        <button id="submit-booking" type="submit" class="block w-full mt-4 py-4 bg-primary text-dark rounded-full font-extrabold font-heading uppercase tracking-widest text-sm hover:bg-accent transition-all duration-300">
+                            <span>Confirm Payment</span>
+                        </button>
+                        <p id="booking-error" class="hidden text-red-500 text-xs font-bold text-center mt-2"></p>
+                    </form>
+
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="py-16 px-6 border-t border-primary/5 bg-dark mt-auto">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                <div class="flex flex-col gap-4">
-                    <h5 class="text-primary font-heading font-extrabold uppercase tracking-widest text-sm mb-2">Learn More</h5>
-                    <div class="flex flex-col gap-3 text-muted text-sm font-medium">
-                        <a href="privacy.html" class="hover:text-accent transition-colors">Privacy</a>
-                        <a href="security.html" class="hover:text-accent transition-colors">Security</a>
-                        <a href="terms-of-service.html" class="hover:text-accent transition-colors">Terms of Service</a>
-                        <a href="help-and-support.html" class="hover:text-accent transition-colors">Help & Support</a>
-                        <a href="report-a-fraud.html" class="hover:text-accent transition-colors">Report a Fraud</a>
-                        <a href="blog.html" class="hover:text-accent transition-colors">Blog</a>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <h5 class="text-primary font-heading font-extrabold uppercase tracking-widest text-sm mb-2">Social Links</h5>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-accent hover:text-dark transition-all duration-300">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="border-primary/5 mb-8">
-            <div class="text-[11px] md:text-xs text-muted leading-relaxed font-medium uppercase tracking-wider">
-                <p class="mb-4">By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners.</p>
-                <p><span class="font-numbers">2026</span> © ORBT°<span class="font-numbers">360</span>. All rights reserved.</p>
-            </div>
-        </div>
+    <footer class="py-12 text-center text-sm font-bold tracking-widest uppercase text-muted border-t border-primary/5 mt-auto">
+        &copy; <span class="font-numbers">2026</span> ORBT°<span class="font-numbers">360</span>. All systems operational.
     </footer>
 
     <script>
+        // Header Scroll Logic
+        let ticking = false;
+        function updateHeader() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 20) { header.classList.add('border-primary/10', 'shadow-lg'); } 
+            else { header.classList.remove('border-primary/10', 'shadow-lg'); }
+            ticking = false;
+        }
+        window.addEventListener('scroll', () => {
+            if (!ticking) { window.requestAnimationFrame(updateHeader); ticking = true; }
+        }, { passive: true });
+        updateHeader();
+
+        // Copy UPI Logic
+        function copyUPI() {
+            const upiId = "orbt9365@hdfc.bank";
+            navigator.clipboard.writeText(upiId).then(() => {
+                const icon = document.getElementById('copy-icon');
+                icon.className = "fa-solid fa-check text-green-500 text-lg"; // Show checkmark
+                setTimeout(() => {
+                    icon.className = "fa-regular fa-copy text-lg"; // Revert back
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        // Image Upload UI update
+        document.getElementById('screenshot-upload').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'Upload Payment Screenshot...';
+            const displaySpan = document.getElementById('file-name-display');
+            displaySpan.innerText = fileName;
+            
+            // Highlight text when file is selected
+            if(e.target.files[0]) {
+                displaySpan.classList.remove('text-muted');
+                displaySpan.classList.add('text-primary');
+            } else {
+                displaySpan.classList.add('text-muted');
+                displaySpan.classList.remove('text-primary');
+            }
+        });
+
+        // Pull dynamic data from Pricing page URL
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const price = params.get('price');
             const tier = params.get('tier');
 
             if (price) {
-                // Unhide the container
                 document.getElementById('dynamic-price-container').classList.remove('hidden');
-                // Inject the exact price
                 document.getElementById('dynamic-price').innerText = price;
-                
-                // Inject the package name if it exists
+                document.getElementById('form-price').value = price;
+
                 if (tier) {
                     const tierName = tier.includes('GMB') ? tier : tier + ' Package';
                     document.getElementById('dynamic-tier').innerText = tierName;
+                    document.getElementById('form-tier').value = tierName; 
                 }
+            }
+        });
+
+        // Handle AJAX Background Submission with Image Upload
+        const bookingForm = document.getElementById("booking-form");
+        const submitBtn = document.getElementById("submit-booking");
+        const successMsg = document.getElementById("booking-success");
+        const errorMsg = document.getElementById("booking-error");
+
+        bookingForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            // UI feedback while sending
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Verifying...`;
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            errorMsg.classList.add('hidden');
+
+            try {
+                // FormData automatically handles the multipart/form-data encoding for the image
+                const response = await fetch(bookingForm.action, {
+                    method: bookingForm.method,
+                    body: new FormData(bookingForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // Success! Hide form, show confirmation
+                    bookingForm.style.display = 'none';
+                    successMsg.classList.remove('hidden');
+                } else {
+                    errorMsg.innerText = "Oops! There was a problem submitting your booking.";
+                    errorMsg.classList.remove('hidden');
+                    resetButton();
+                }
+            } catch (error) {
+                errorMsg.innerText = "Network error. Please try again.";
+                errorMsg.classList.remove('hidden');
+                resetButton();
+            }
+
+            function resetButton() {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
             }
         });
     </script>
