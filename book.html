@@ -116,8 +116,9 @@
                         <div class="w-16 h-16 bg-accent/10 border border-accent/30 text-accent rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
                             <i class="fa-solid fa-check"></i>
                         </div>
-                        <h4 class="text-xl font-heading font-extrabold text-primary mb-2 uppercase tracking-tight">Payment Received</h4>
-                        <p class="text-muted font-medium text-sm leading-relaxed">Your details have been securely logged. Our production team will contact you shortly.</p>
+                        <h4 id="booking-success-header" class="text-xl font-heading font-extrabold text-primary mb-2 uppercase tracking-tight">Submission Provisional</h4>
+                        <p id="booking-success-body" class="text-muted font-medium text-sm leading-relaxed">Your details, including the UTR, have been received. We are verifying the payment. If the UTR cannot be matched, we cannot proceed. Please check your email for updates.</p>
+                        <a href="help-and-support.html" class="text-accent hover:underline font-medium text-xs mt-3 inline-block">Contact Support</a>
                     </div>
 
                     <form id="booking-form" action="https://formspree.io/f/xnjlorjk" method="POST" class="relative z-10">
@@ -133,12 +134,12 @@
                             </div>
                             
                             <div class="space-y-4">
-                                <input type="text" name="Business_Name" id="input-name" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium" placeholder="Business / Property Name" required>
-                                <input type="email" name="Billing_Email" id="input-email" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium" placeholder="Billing Email Address" required>
-                                <input type="tel" name="Contact_Number" id="input-phone" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="+91 Mobile Number" required>
+                                <input type="text" name="Business_Name" id="input-business-name" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium" placeholder="Business / Property Name" required>
+                                <input type="email" name="Billing_Email" id="input-billing-email" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium" placeholder="Billing Email Address" required>
+                                <input type="tel" name="Contact_Number" id="input-phone-number" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="+91 Mobile Number" required>
                             </div>
 
-                            <button type="button" onclick="goToStep(2)" class="w-full mt-8 py-4 bg-primary text-dark rounded-full font-extrabold font-heading uppercase tracking-widest text-sm hover:bg-accent transition-all duration-300 flex items-center justify-center gap-2">
+                            <button type="button" onclick="validateStep1()" class="w-full mt-8 py-4 bg-primary text-dark rounded-full font-extrabold font-heading uppercase tracking-widest text-sm hover:bg-accent transition-all duration-300 flex items-center justify-center gap-2">
                                 Continue to Legal <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
@@ -149,19 +150,18 @@
                                 <span class="text-[10px] text-muted font-bold uppercase tracking-widest bg-dark px-3 py-1 rounded-full border border-primary/10">Step 2 of 3</span>
                             </div>
 
-                            <p class="text-[10px] text-accent font-bold uppercase tracking-widest mb-4"><i class="fa-solid fa-circle-info mr-1"></i> These fields are optional</p>
-
                             <div class="space-y-4">
-                                <input type="text" name="GSTIN" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="GSTIN (If Registered)">
-                                <input type="text" name="Trade_License_Or_Udyam" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium" placeholder="Trade Lic / Udyam No. (If Non-GST)">
-                                <textarea name="Billing_Address" rows="2" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium resize-none" placeholder="Registered Billing Address"></textarea>
+                                <input type="text" name="GSTIN" id="input-gst" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-numbers tracking-widest" placeholder="GSTIN (If Registered)">
+                                <input type="text" name="Trade_License_Or_Udyam" id="input-trade" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium" placeholder="Trade Lic / Udyam No. (If Non-GST)">
+                                <textarea name="Billing_Address" id="textarea-billing" rows="2" class="premium-input w-full rounded-xl px-4 py-3 text-sm font-medium resize-none" placeholder="Registered Billing Address" required></textarea>
                             </div>
+                            <p id="step2-error" class="hidden text-red-500 text-xs font-bold text-center mt-3"></p>
 
                             <div class="flex gap-3 mt-8">
                                 <button type="button" onclick="goToStep(1)" class="w-1/3 py-4 bg-dark border border-primary/10 text-muted rounded-full font-bold uppercase tracking-widest text-xs hover:text-primary transition-all duration-300">
                                     Back
                                 </button>
-                                <button type="button" onclick="goToStep(3)" class="w-2/3 py-4 bg-primary text-dark rounded-full font-extrabold font-heading uppercase tracking-widest text-sm hover:bg-accent transition-all duration-300">
+                                <button type="button" onclick="validateStep2()" class="w-2/3 py-4 bg-primary text-dark rounded-full font-extrabold font-heading uppercase tracking-widest text-sm hover:bg-accent transition-all duration-300">
                                     Proceed to Pay
                                 </button>
                             </div>
@@ -181,7 +181,7 @@
                             <div class="aspect-square bg-primary rounded-3xl mb-6 p-4 flex flex-col items-center justify-center shadow-2xl relative z-10">
                                 <div class="w-full h-full border-2 border-dashed border-gray-400 rounded-2xl flex items-center justify-center">
                                     <span class="text-gray-500 text-xs font-extrabold font-heading uppercase tracking-widest text-center">Place QR Code <br> Here</span>
-                                </div>
+                                }
                             </div>
 
                             <div class="bg-black/50 border border-primary/5 py-4 rounded-xl mb-6 relative z-10 group">
@@ -276,25 +276,53 @@
         }, { passive: true });
         updateHeader();
 
-        // Step Navigation Logic with Validation
-        function goToStep(step) {
-            // Validate Step 1 before moving to Step 2
-            if (step === 2) {
-                const nameInput = document.getElementById('input-name');
-                const emailInput = document.getElementById('input-email');
-                const phoneInput = document.getElementById('input-phone');
+        // Validate Step 1 before proceeding
+        function validateStep1() {
+            const nameInput = document.getElementById('input-business-name');
+            const emailInput = document.getElementById('input-billing-email');
+            const phoneInput = document.getElementById('input-phone-number');
 
-                if (!nameInput.checkValidity()) { nameInput.reportValidity(); return; }
-                if (!emailInput.checkValidity()) { emailInput.reportValidity(); return; }
-                if (!phoneInput.checkValidity()) { phoneInput.reportValidity(); return; }
+            if (!nameInput.reportValidity()) return;
+            if (!emailInput.reportValidity()) return;
+            if (!phoneInput.reportValidity()) return;
+
+            // Success, proceed to Step 2
+            goToStep(2);
+        }
+
+        // Validate Step 2 before proceeding
+        function validateStep2() {
+            const gstInput = document.getElementById('input-gst');
+            const tradeInput = document.getElementById('input-trade');
+            const billingInput = document.getElementById('textarea-billing');
+            const errorMsg = document.getElementById('step2-error');
+
+            // Browser required check
+            if (!billingInput.reportValidity()) return;
+
+            // Conditional Logic for GST/Trade License
+            const gstVal = gstInput.value.trim();
+            const tradeVal = tradeInput.value.trim();
+
+            if (!gstVal && !tradeVal) {
+                errorMsg.innerText = "Please provide either a GSTIN or a Trade License / Udyam No. for B2B Invoicing.";
+                errorMsg.classList.remove('hidden');
+                return; // Stop the progression
             }
 
+            // Success, hide error, proceed to Step 3
+            errorMsg.classList.add('hidden');
+            goToStep(3);
+        }
+
+        // Standard Step Navigation Logic
+        function goToStep(step) {
             // Hide all steps
             document.getElementById('step-1').classList.add('hidden');
             document.getElementById('step-2').classList.add('hidden');
             document.getElementById('step-3').classList.add('hidden');
             
-            // Remove animation class temporarily to re-trigger it
+            // Re-trigger animation
             const targetStep = document.getElementById('step-' + step);
             targetStep.classList.remove('fade-in-up');
             
@@ -344,6 +372,12 @@
         bookingForm.addEventListener("submit", async function(event) {
             event.preventDefault();
 
+            // Native required attribute covers UTR in Step 3
+            // and Billing in Step 2, ensuring progressive validation.
+            // Form won't submit unless Step 3 UTR is valid pattern and all
+            // progressive requirements are met.
+
+            // UI feedback while sending
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Verifying...`;
             submitBtn.disabled = true;
@@ -358,6 +392,7 @@
                 });
                 
                 if (response.ok) {
+                    // Success! Hide form, show custom message
                     bookingForm.style.display = 'none';
                     successMsg.classList.remove('hidden');
                 } else {
